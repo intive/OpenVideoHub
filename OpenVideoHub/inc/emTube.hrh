@@ -1,0 +1,162 @@
+/*
+ * Copyright (c) 2007-2009 BLStream Oy.
+ *
+ * This file is part of OpenVideoHub.
+ *
+ * OpenVideoHub is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * OpenVideoHub is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with OpenVideoHub; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
+#ifndef EMTUBE_HRH
+#define EMTUBE_HRH
+
+enum TEmTubeIds
+	{
+	EMTVSearchCommand = 1,
+	EMTVSearchNextCommand,
+
+	EMTVSetAsDefaultServerCommand,
+	EMTVLoginCommand,
+
+	EMTVSendViaBluetoothCommand,
+
+	EMTVTransferManagerStartCommand,
+	EMTVTransferManagerStopCommand,
+	EMTVTransferManagerRetryCommand,
+	EMTVRemoveFromQueueCommand,
+	EMTVMoveUpCommand,
+	EMTVMoveDownCommand,
+	EMTVRemoveFinishedEntriesCommand,
+
+	EMTVOpenVideoByIdCommand,
+	EMTVScanDirectoriesCommand,
+
+	EMTVShowFavoritesCommand,
+	EMTVShowSavedClipsCommand,
+
+	EMTVSortByCommand,
+	EMTVSortByRelevanceCommand,
+	EMTVSortByDateAddedCommand,
+	EMTVSortByViewCountCommand,
+	EMTVSortByRatingCommand,
+
+	EMTVCheckForUpdate,
+
+	EMTVHelpCommand,
+
+	EMTVPlayLocalFileCommand,
+
+	EMTVProgressDialogCancel,
+
+	EMTVAboutCommand,
+	EMTVExitCommand,
+
+	EMTVActivatePlayViewCommand, //go to play view
+	EMTVActivateMainViewCommand, //go to main view
+	EMTVActivateSettingsViewCommand, //go to settings view
+	EMTVActivateSearchViewCommand, //go to search view
+	EMTVActivateTransferManagerViewCommand, //go to TM view
+	EMTVActivatePlaylistsViewCommand, //go to playlists view
+	EMTVActivateServersViewCommand, //go to servers view
+
+	EMTVActivatePreviousViewCommand, //go to previous view
+
+	EMTVChangeSettingCommand, //change one setting
+
+	EMTVDisplaySearchResultsCommand,
+
+	EMTVSearchViewPlayCommand,
+	EMTVSearchViewDetailsCommand,
+	EMTVSearchViewAddToFCommand,
+	EMTVSearchViewRemoveFromFCommand,
+	EMTVShowRelatedCommand,
+	EMTVShowUserCommand,
+	EMTVSearchViewBackCommand,
+	EMTVSearchViewDownloadCommand,
+    EMTVDownloadCommand,
+    EMTVSearchViewHideCommand,
+
+    EMTVSearchViewTabToLeftCommand,
+    EMTVSearchViewTabToRightCommand,
+
+	EMTVRenameClipCommand,
+	EMTVDeleteClipCommand,
+
+	EMTVVideoPropertiesCommand,
+	EMTVVideoPlayCommand,
+	EMTVVideoPauseCommand,
+	EMTVVideoSwitchToFullScreenCommand,
+	EMTVVideoBackFromFullScreenCommand,
+	EMTVVideoSaveCommand,
+
+	EMTVSoftkeyOk,
+
+	EMTVAddPlaylistCommand,
+	EMTVEditPlaylistCommand,
+	EMTVGrabPlaylistElementCommand,
+	EMTVDropPlaylistElementCommand,
+	EMTVFinishEditingPlaylistCommand,
+	EMTVAddToPlaylistCommand,
+	EMTVRemoveFromPlaylistCommand
+
+	};
+
+/** emTube settings ids*/
+enum TEmTubeSettingsIDs
+	{
+	EMTVSettingsVolume = 50,
+	EMTVSettingsUpscaleVideo,
+	EMTVSettingsStartPlayback,
+	EMTVSettingsMaxResults,
+	EMTVSettingsSortResultsBy,
+	EMTVSettingsAccessPoint,
+	EMTVSettingsCacheSize,
+	EMTVSettingsAutoRotate,
+	EMTVSettingsTempMemory,
+	EMTVSettingsS60Ui
+	};
+
+/** emTube upload video dialog Ids */
+enum TEmTubeUploadVideoIds
+	{
+	EUploadVideoFieldTitle = 1,
+	EUploadVideoFieldDescription,
+	EUploadVideoFieldTags,
+	EUploadVideoFieldCategory,
+	EUploadVideoFieldPublic
+	};
+
+/** emTube view Id*/
+enum TEmTubeViewIds
+	{
+	EMTVMainViewId = 0,
+	EMTVPlayViewId,
+	EMTVSettingsViewId,
+	EMTVSearchViewId,
+	EMTVTransferViewId,
+	EMTVSplashViewId,
+	EMTVServersViewId,
+	EMTVPlaylistViewId
+	};
+
+/** emTube dialogs Id*/
+enum TEmTubeDialogIds
+	{
+	EMTVFileDownloadProgressNote = 0x100,
+	EMTVFileSaveProgressNote
+	};
+
+#define KUploadVideoMaxFieldLength 255
+
+#endif //EMTUBE_HRH

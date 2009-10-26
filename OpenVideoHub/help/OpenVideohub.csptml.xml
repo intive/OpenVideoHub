@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE csptml SYSTEM "file:///C:/S60/devices/S60_5th_Edition_SDK_v0.9_2/epoc32/tools/cshlpcmp/dtd/csptml.dtd">
+<?xml:stylesheet href="file:///C:/S60/devices/S60_5th_Edition_SDK_v0.9_2/epoc32/tools/cshlpcmp/xsl/csptml.xsl" title="csptml" type="text/xsl"?>
+<csptml><section level="0">
+<p style="comment">Author: BLStream</p>
+<p style="comment">Date: 10-06-2008</p>
+<p style="comment">Version: 1</p>
+<section level="1"><heading>Open Videohub</heading>
+<p style="category uid">0x2001A7DC</p>
+<section level="2"><heading>Open Videohub Help</heading>
+<p style="context">ContextApplication <cs style="context comment">The Application</cs></p>
+<p style="index1">Open Videohub Application</p>
+<p style="normal"><b>Open Videohub</b> allows you to access videos on several video content providing sites.</p>
+<p style="normal">From the main menu you can:</p>
+<p style="normal"><b>Search</b> for a video by keyword. Type any keywords and wait for the results.</p>
+<p style="normal"><b>Access</b> one of the standard feeds: <i>recently uploaded</i>, <i>most viewed</i>, <i>featured</i> or <i>top rated</i>. Availability of these options depends on selected video site, some may not support all the feeds.</p>
+<p style="normal">Monitor downloads/uploads using <b>Transfer Manager</b>.</p>
+<p style="normal"><b>Access</b> files downloaded from the network or transferred to your phone from a pc (<b>Saved clips</b>).</p>
+<p style="normal"><b>Manage </b>your favourites videos.</p>
+<p style="normal">You can also use <b>Options</b> to access additional options:</p>
+<p style="normal"><b>Open </b>local files.</p>
+<p style="normal"><b>Change</b> default video site.</p>
+<p style="normal"><b>Access </b>program settings.</p>
+<p style="normal">You can contact the author by sending an email to gvh@blstream.com</p>
+<p style="normal">More information about the program, online FAQ and updates can be found at: http://blstream.com/gvh/</p>
+</section><section level="2"><heading>Search</heading>
+<p style="context">ContextSearch <cs style="context comment">Search results</cs></p>
+<p style="index1">Search</p>
+<p style="normal">This view is used to display search results as well as your favourites and saved videos. </p>
+<p style="normal">To view any video press joystick center button or tap on the selected video and select <b>View</b> from the popup menu.</p>
+<p style="normal">Additionally using options menu you can:</p>
+<p style="normal"><b>Watch</b> the video.</p>
+<p style="normal"><b>Change</b> sorting method.</p>
+<p style="normal"><b>Download</b> video to your phone. When you select a video to download a progress bar indicating how much of the file has been already downloaded is presented. You can use left soft key to put it in background (<b>Hide</b>) and continue browsing. The download will continue in background via  <b>Transfer manager.</b> You can check the download progress later on using that view. Please note, that downloading videos may be not be possible from some of the video servers, you will only be able to stream/view videos from such servers.</p>
+<p style="normal"><b>Check</b> video details.</p>
+<p style="normal"><b>Add/remove</b> to/from favourites.</p>
+<p style="normal"><b>See related</b> videos as well as videos uploaded by an user.</p>
+<p style="normal">Available options depends on the data being displayed (some of the options are not available in <b>Saved clips</b> mode).</p>
+<p style="normal">Also, in <b>Saved clips</b> mode you can scan your entire phone memory/memory card in order to find FLV files.</p>
+</section><section level="2"><heading>Player</heading>
+<p style="context">ContextPlayer <cs style="context comment">Player</cs></p>
+<p style="index1">Video player</p>
+<p style="normal">This view is used to play videos, either directly from the network or locally from your phone memory. The navigation/status pane displays information about a video such as the current time and video duration, as well as a video's size (in MB) and how much of the video has been downloaded. The last information is only presented when a remote video is being played. Once the video is ready, you can start the playback either via menu (<b>Play</b>) or by using the center joystick button.</p>
+<p style="normal">On touch enabled devices on screen control will be presented that allows you to control position/volume of the clip (tap the screen once to enable the OSD control), on other phones playback can be controlled via keyboard:</p>
+<p style="normal"><b>Joystick left/right</b> keys changes the position within a video file.</p>
+<p style="normal"><b>Joystick up/down </b> keys changes the volume. The volume can be also changed by using <b>Volume</b> keys, if your phone is equipped with such keys.</p>
+<p style="normal">'<b>1</b>' key switches between the normal and full screen (landscape) playback. Please note that on devices equipped with accelerometer (for example N95) this effect can be achieved simply by rotating your phone.</p>
+<p style="normal">'<b>3</b>' key rewinds video to the beginning.</p>
+<p style="normal">'<b>4</b>' key mutes/unmutes audio.</p>
+<p style="normal">On non touch enabled devices, when the video is paused,  you can use menu options to view clip properties (resolution, audio channels / sample rate, audio / video codecs) as well as save a remote video to a file using “<b>Save</b>” option. This option will be only available for remote videos, and these can be saved as soon as they have been downloaded completely. Please note, that some servers do not allow saving videos locally, and in such case <b>Save </b>option will not be available.</p>
+</section><section level="2"><heading>Settings</heading>
+<p style="context">ContextSettings <cs style="context comment">Settings</cs></p>
+<p style="index1">Settings</p>
+<p style="normal">This view allows you to modify program behaviour.</p>
+<p style="normal">Volume: Allows you to set audio volume. This can be changed also during a playback using up/down or volume keys.</p>
+<p style="normal">Scale video up: This option allows you to turn on/off video upscaling. If your phone resolution is bigger than 320x240 video and this option is on video will be scaled up to fill whole available area (with aspect ratio preserved). This may however slow down video playback, so you may want to turn it off to get faster playback. Default <b>off</b>.</p>
+<p style="normal">Start Video: This option allows you to control the video player when playing videos directly from Network. When a video is ready for a playback it can be:</p>
+<p style="normal">Started manually. This is the default behaviour.</p>
+<p style="normal">Started after download finishes, when a whole video has been downloaded. Although it is possible to start it immediately, application will wait till the download process has been completed.</p>
+<p style="normal">Start as soon as possible. Application will check if download speed is high enough to start a playback after part of a video clip have been downloaded.</p>
+<p style="normal">Max search results: Number of videos returned in every search call. Default is 5. Please note, that some video servers may ignore this value and return more entries in each search call.</p>
+<p style="normal">Sort results by: Set the default method of sorting search results. This can also be changed using menu in search view. Default value is Relevance.</p>
+<p style="normal">Access Point: Allows you to set preferred access point. Default is Always ask.</p>
+<p style="normal">Cache size: Size (in kilobytes) of space used to store images and other data from the video server. It doesn't include video clips, only the data used to search for videos.</p>
+<p style="normal">Auto rotate: Disables and enables accelerometer support for switching between  portrait and  landscape mode. This setting item is ignored if your phone isn't equipped with an accelerometer.</p>
+<p style="normal"><b>Temp memory</b>: Defines which memory should be used for storing a temporary video file while playing the video directly from the network. Phone memory is default because it is much faster than a memory card.</p>
+</section><section level="2"><heading>Transfer Manager</heading>
+<p style="context">ContextTransferMgr <cs style="context comment">TransferManager</cs></p>
+<p style="index1">Transfer Manager</p>
+<p style="normal">This view allows you to monitor your downloads and uploads.</p>
+<p style="normal">Using <b>Options</b> menu you can move entry up/down, remove, pause or start selected entry. Note, that only one entry can be active at a time.</p>
+<p style="normal">You can also start video upload using this view. Simply select <b>Upload video</b> from the menu, select site you want to upload video to, pick a video from the presented list of videos, set <i>title</i>, <i>tags</i> and <i>description</i> and press <b>Done</b>. may also be asked to enter your user name and password for the selected server.</p>
+</section><section level="2"><heading>Video Servers</heading>
+<p style="context">ContextServers <cs style="context comment">Servers</cs></p>
+<p style="index1">Servers</p>
+<p style="normal">This view is used to view list of supported video servers. You can set default video server here. Simply select the one you want to be default, press center key, select <b>Set as default server</b> and press <b>Done</b>. Selected server will always be used as a first server when you browse for videos, but you can see the results from other servers at the same time by changing search tabs.</p>
+<p style="normal">Currently selected default server is always marked with a checkmark on the right side of the list.</p>
+<p style="normal">While using this list you can also login to selected site (if you have an account on it). Simply click center key or tap on selected server, select <b>Login</b> from the popup menu and follow on screen instructions. Logging in will help if you want to upload videos to a selected site and also will allow you to view videos that are not available for not registered users.</p>
+</section></section></section></csptml>

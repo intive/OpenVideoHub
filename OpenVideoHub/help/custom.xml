@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE cshcust SYSTEM "../../../Symbian/9.1/S60_3rd/Epoc32/tools/cshlpcmpdtd/CSHcust.dtd">
+<?xml:stylesheet href="../../../Symbian/9.1/S60_3rd/Epoc32/tools/cshlpcmp/xsl/cshcust.xsl" title="CS Help customization" type="text/xsl"?>
+<cshcust>
+<parastyle name="body" font="sansserif" size="10"/>
+<parastyle name="note" font="sansserif" size="10" left="20"><b>Note:</b></parastyle>
+<body style="body"/>
+<titlestyle fontstyle="sansserif" size="10"/>
+<listbullet1style bulletchar="8226"/>
+<listbullet2style bulletchar="8226"/>
+<lists leftindent="20"/>
+</cshcust>
+
+

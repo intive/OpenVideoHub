@@ -1,0 +1,39 @@
+;
+; Copyright (c) 2007-2009 BLStream Oy.
+;
+; This file is part of OpenVideoHub.
+;
+; OpenVideoHub is free software; you can redistribute it and/or
+; modify it under the terms of the GNU Lesser General Public
+; License as published by the Free Software Foundation; either
+; version 2.1 of the License, or (at your option) any later version.
+;
+; OpenVideoHub is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+; Lesser General Public License for more details.
+;
+; You should have received a copy of the GNU Lesser General Public
+; License along with OpenVideoHub; if not, write to the Free Software
+; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+;
+
+;Languages
+&EN
+
+;Standard SIS file header
+#{"daily motion plugin"},(0x2001A7E1),1,0,0
+
+;Localised Vendor name
+%{"None"}
+
+;Unique Vendor name
+:"None"
+
+;Supports S60 v 3.0
+[0x101F7961], 0, 0, 0, {"S60ProductID"}
+
+"C:\Symbian\9.1\s60_3rd\Epoc32\release\armv5\urel\DailyMotionPlugin_0x2001A7E1.dll"              -"!:\sys\bin\DailyMotionPlugin_0x2001A7E1.dll"
+"C:\Symbian\9.1\s60_3rd\Epoc32\data\z\resource\plugins\DailyMotionPlugin_0x2001A7E1.rsc"         -"!:\Resource\Plugins\DailyMotionPlugin_0x2001A7E1.rsc"
+"C:\Symbian\9.1\s60_3rd\Epoc32\data\z\resource\apps\DailyMotionPlugin.mbm"            -"!:\Resource\apps\DailyMotionPlugin.mbm"
+"C:\Symbian\9.1\s60_3rd\Epoc32\data\z\resource\apps\DailyMotionPlugin.mif"            -"!:\Resource\apps\DailyMotionPlugin.mif"

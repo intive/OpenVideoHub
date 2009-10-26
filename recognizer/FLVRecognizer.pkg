@@ -1,0 +1,20 @@
+; FLVRecognizer.pkg
+;
+;Language - standard language definitions
+&EN
+
+; standard SIS file header
+#{"FLVRecognizer"},(0x2001A7E4),1,0,0,TYPE=SISAPP
+
+;Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+;Localized Vendor Name
+%{"FLVRecognizer-EN"}
+
+;Unique Vendor name
+:"FLVRecognizer"
+
+; Files to copy
+"c:\symbian\9.1\s60_3rd\epoc32\release\gcce\urel\flvrecog.dll"                     - "!:\sys\bin\flvrecog.dll"
+"c:\symbian\9.1\s60_3rd\epoc32\data\z\resource\plugins\flvrecog.rsc"               - "!:\resource\plugins\flvrecog.rsc"

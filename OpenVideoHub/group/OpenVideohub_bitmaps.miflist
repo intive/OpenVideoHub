@@ -1,0 +1,75 @@
+/c32,1 ..\gfx\icn_volume.svg
+/c32,1 ..\gfx\icn_pause.svg
+/c32,1 ..\gfx\icn_play.svg
+/c32,1 ..\gfx\empty.svg
+/c32,1 ..\gfx\star_red.svg
+/c32,1 ..\gfx\star_white.svg
+/c32,1 ..\gfx\star_gray.svg
+/c32,1 ..\gfx\no_image.svg
+
+/8,1   ..\gfx\11.bmp
+/8,1   ..\gfx\12.bmp
+/8,1   ..\gfx\13.bmp
+/8,1   ..\gfx\14.bmp
+/8,1   ..\gfx\15.bmp
+/8,1   ..\gfx\16.bmp
+/8,1   ..\gfx\17.bmp
+/8,1   ..\gfx\18.bmp
+
+/c32,1 ..\gfx\icn_volume_mute.svg
+
+/c32,1 ..\gfx\osd_back.svg
+/c32,1 ..\gfx\osd_play.svg
+/c32,1 ..\gfx\osd_pause.svg
+/c32,1 ..\gfx\osd_prev.svg
+/c32,1 ..\gfx\osd_next.svg
+/c32,1 ..\gfx\osd_forward.svg
+/c32,1 ..\gfx\osd_rewind.svg
+/c32,1 ..\gfx\osd_goback.svg
+/c32,1 ..\gfx\osd_knob.svg
+/c32,1 ..\gfx\osd_slider_empty.svg
+/c32,1 ..\gfx\osd_slider_red.svg
+/c32,1 ..\gfx\osd_slider_blue.svg
+/c32,1 ..\gfx\osd_prev_dimmed.svg
+/c32,1 ..\gfx\osd_next_dimmed.svg
+/c32,1 ..\gfx\osd_volume.svg
+/c32,1 ..\gfx\osd_volume_mute.svg
+/c32,1 ..\gfx\osd_volume_slider_empty.svg
+/c32,1 ..\gfx\osd_volume_slider_full.svg
+/c32,1 ..\gfx\osd_volume_back.svg
+
+/c32,1 ..\gfx\loading1.svg
+/c32,1 ..\gfx\loading2.svg
+/c32,1 ..\gfx\loading3.svg
+/c32,1 ..\gfx\loading4.svg
+/c32,1 ..\gfx\loading5.svg
+/c32,1 ..\gfx\loading6.svg
+/c32,1 ..\gfx\loading7.svg
+/c32,1 ..\gfx\loading8.svg
+
+/c32,1 ..\gfx\osd_scaleextended.svg
+/c32,1 ..\gfx\osd_scalenone.svg
+/c32,1 ..\gfx\osd_scalenormal.svg 
+
+/c32,1 ..\gfx\icn_featured.svg
+/c32,1 ..\gfx\icn_featured1.svg
+/c32,1 ..\gfx\icn_search.svg
+/c32,1 ..\gfx\icn_search1.svg
+/c32,1 ..\gfx\icn_toprated.svg
+/c32,1 ..\gfx\icn_toprated1.svg
+/c32,1 ..\gfx\icn_mostviewed.svg
+/c32,1 ..\gfx\icn_mostviewed1.svg
+/c32,1 ..\gfx\icn_bookmarks.svg
+/c32,1 ..\gfx\icn_bookmarks1.svg
+/c32,1 ..\gfx\icn_savedclips.svg
+/c32,1 ..\gfx\icn_savedclips1.svg
+/c32,1 ..\gfx\icn_transfer.svg
+/c32,1 ..\gfx\icn_transfer1.svg
+/c32,1 ..\gfx\icn_upload.svg
+/c32,1 ..\gfx\icn_upload1.svg
+/c32,1 ..\gfx\icn_download.svg
+/c32,1 ..\gfx\icn_download1.svg
+/c32,1 ..\gfx\icn_hot.svg
+/c32,1 ..\gfx\icn_hot1.svg
+
+/c24   ..\gfx\logo_white.bmp

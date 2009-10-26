@@ -1,0 +1,35 @@
+- Replace the UIDs in main application and all plugins
+  with UIDs from unprotected range so that the application can be self signed.
+  Might require removing recognizer, as it requires heavy capabilities.
+
+- Allow users to define categories in "Saved clips" and move clips around
+  categories.
+
+- Add option to start playback from user defined (in seconds) position.
+
+- Add ability to access user videos/favorities/playlists/subscribed channels
+  on youtube. Might require adding new functions to the plugins API.
+
+- Fix help and documentation to reflect the changes in scale change settings.
+
+- Enable playlist support, fix any remaining problems and bugs.
+
+- Shuffle playlists using accelerometer and shake.
+
+- Add a code that warns user about transfer manager not being empty when
+  exit is being called.
+
+- Support for KCapsVideoDownload flag in gvh app. Do not show that plugin on 
+  the list, and on the tabs. Only on the upload dialog.
+
+- Seeking doesn't work with youtube clips. Check the demuxer for possible
+  problems with index handling.
+  
+- Add ability to display more than one thumbnail. When user waits on one entry
+  download them and change using timer.
+
+- Use the new OSD (for touch UI) as default. It has to be modified to support
+  scaling the interface down.
+
+- Enable FindBox in Saved Clips. Since this code was not tested, heavy
+  bugfixing might be required.

@@ -1,0 +1,56 @@
+TARGET          libavaudio_0x2001EDF7.dll
+TARGETTYPE      dll
+EPOCALLOWDLLDATA
+UID             0x1000008d 0x2001EDF7
+VENDORID        0          
+
+ALWAYS_BUILD_AS_ARM
+
+SOURCEPATH      ..
+SOURCE avlibaudio.c
+
+SOURCEPATH       ..\libavcodec
+SOURCE raw.c
+SOURCE eval.c
+SOURCE utils.c
+SOURCE parser.c
+//SOURCE adpcm.c
+//SOURCE pcm.c
+SOURCE mpegaudio.c
+SOURCE mpegaudiodata.c
+SOURCE mpegaudiodec.c
+SOURCE mpegaudiodecheader.c
+//SOURCE mpegaudio_parser.c
+SOURCE bitstream.c
+SOURCE imgconvert.c
+SOURCE opt.c
+SOURCE huffman.c
+
+SOURCEPATH      ..\libavutil
+SOURCE log.c
+SOURCE mathematics.c
+SOURCE mem.c
+SOURCE rational.c
+
+MACRO HAVE_AV_CONFIG_H
+OPTION GCC -D_ISOC9X_SOURCE
+OPTION ARMCC --gnu
+
+SYSTEMINCLUDE   .
+SYSTEMINCLUDE   ..
+SYSTEMINCLUDE   \epoc32\include 
+SYSTEMINCLUDE   \epoc32\include\stdapis
+
+USERINCLUDE     .
+USERINCLUDE     ..
+USERINCLUDE     ..\libavutil
+USERINCLUDE     ..\libavcodec
+
+LIBRARY         libc.lib
+LIBRARY         libm.lib
+
+#ifndef WINSCW
+STATICLIBRARY   libavcodecasm.lib
+#endif
+
+CAPABILITY      ReadUserData WriteUserData NetworkServices LocalServices

@@ -1,0 +1,39 @@
+;
+; Copyright (c) 2007-2009 BLStream Oy.
+;
+; This file is part of OpenVideoHub.
+;
+; OpenVideoHub is free software; you can redistribute it and/or
+; modify it under the terms of the GNU Lesser General Public
+; License as published by the Free Software Foundation; either
+; version 2.1 of the License, or (at your option) any later version.
+;
+; OpenVideoHub is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+; Lesser General Public License for more details.
+;
+; You should have received a copy of the GNU Lesser General Public
+; License along with OpenVideoHub; if not, write to the Free Software
+; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+;
+
+;Languages
+&EN
+
+;Standard SIS file header
+#{"example plugin"},(my_dll_uid),1,0,0
+
+;Localised Vendor name
+%{"None"}
+
+;Unique Vendor name
+:"None"
+
+;Supports S60 v 3.0
+[0x101F7961], 0, 0, 0, {"S60ProductID"}
+
+"C:\Symbian\9.1\s60_3rd\Epoc32\release\armv5\urel\ExamplePlugin.dll"              -"!:\sys\bin\ExamplePlugin.dll"
+"C:\Symbian\9.1\s60_3rd\Epoc32\data\z\resource\plugins\ExamplePlugin.rsc"         -"!:\Resource\Plugins\ExamplePlugin.rsc"
+"C:\Symbian\9.1\s60_3rd\Epoc32\data\z\resource\apps\ExamplePlugin.mbm"            -"!:\Resource\apps\ExamplePlugin.mbm"
+"C:\Symbian\9.1\s60_3rd\Epoc32\data\z\resource\apps\ExamplePlugin.mif"            -"!:\Resource\apps\ExamplePlugin.mif"

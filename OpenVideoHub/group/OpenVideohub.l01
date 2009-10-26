@@ -1,0 +1,324 @@
+/*
+ * Copyright (c) 2007-2009 BLStream Oy.
+ *
+ * This file is part of OpenVideoHub.
+ *
+ * OpenVideoHub is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * OpenVideoHub is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with OpenVideoHub; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
+#define ELanguage ELangEnglish
+
+#define STRING_EMTVHelpCommand "Help"
+
+#define STRING_r_button_cancel_txt "Cancel"
+
+#define STRING_EMTVSearchCommand "Search"
+#define STRING_EMTVNewSearchCommand "New search"
+#define STRING_EMTVPlayLocalFileCommand "Open local file"
+#define STRING_EMTVActivateSettingsViewCommand "Settings"
+#define STRING_EMTVAboutCommand "About"
+#define STRING_EMTVExitCommand "Exit"
+
+#define STRING_EMTVSearchViewPlayCommand "View"
+#define STRING_EMTVSearchViewDownloadCommand "Download"
+#define STRING_EMTVSearchViewDetailsCommand "Details"
+#define STRING_EMTVSearchViewAddToFCommand "Add to favorites"
+#define STRING_EMTVSearchViewRemoveFromFCommand "Remove from favorites"
+#define STRING_EMTVSearchViewShowRelatedCommand "Related videos"
+#define STRING_EMTVSearchViewShowUserCommand "User videos"
+
+#define STRING_EMTVChangeSettingCommand "Change"
+
+#define STRING_r_options_cba_button "Options"
+#define STRING_r_back_cba_button "Back"
+
+#define STRING_r_search_dialog_search_for "Search for:"
+#define STRING_r_search_no_videos_found_txt "No videos found!"
+#define STRING_r_search_more_txt "More videos"
+
+#define STRING_r_details_dialog_author_txt "Author:"
+#define STRING_r_details_dialog_title_txt "Title:"
+#define STRING_r_details_dialog_viewcount_txt "View Count:"
+#define STRING_r_details_dialog_ratings_txt "Average ratings:"
+#define STRING_r_details_dialog_duration_txt "Duration:"
+
+#define STRING_r_settings_list_title_txt "Settings"
+#define STRING_r_settings_maxresults_txt "Max search results"
+#define STRING_r_settings_cachesize_txt "Cache size"
+#define STRING_r_settings_volume_txt "Volume"
+#define STRING_r_settings_startplayback_txt "Start video"
+#define STRING_r_settings_autorotate_txt "Autorotate (accelerometer)"
+#define STRING_r_settings_tempmemory_txt "Temp memory"
+
+#define STRING_r_startplayback_manual "Manually"
+#define STRING_r_startplayback_after "After download finishes"
+#define STRING_r_startplayback_asap "As soon as possible"
+
+#define STRING_r_autorotate_disable "Disabled"
+#define STRING_r_autorotate_enable "Enabled"
+
+#define STRING_r_tempmemory_c "Phone memory"
+#define STRING_r_tempmemory_e "Memory card"
+
+#define STRING_r_settinglist_cachesize_control_min_txt "0 Kb"
+#define STRING_r_settinglist_cachesize_control_max_txt "1024 Kb"
+#define STRING_r_maxresults_5 "5"
+#define STRING_r_maxresults_8 "8"
+#define STRING_r_maxresults_12 "12"
+
+#define STRING_r_network_timeout_txt "Connection timed out!"
+#define STRING_r_http_error_txt "Error during network operation: %d"
+#define STRING_r_player_cannot_open_file_txt "Unknown/unsupported file format!"
+
+#define STRING_r_select_drive_txt "Select drive:"
+#define STRING_r_select_drive_button_select_txt "Select"
+
+#define STRING_r_select_filename_txt "Save video as:"
+#define STRING_r_select_open_file_txt "Select"
+#define STRING_r_select_open_folder_txt "Open"
+#define STRING_r_select_back_txt "Back"
+
+#define STRING_r_remove_from_favorites_txt "Remove video from favorites?"
+#define STRING_r_not_enough_space_txt "Not enough disk space to download/save this file!"
+#define STRING_r_cannot_copy_file_txt "Saving file failed!"
+#define STRING_r_saving_file_txt "Saving video..."
+
+#define STRING_EMTVVideoPropertiesCommand "Properties"
+#define STRING_EMTVVideoPlayCommand "Play"
+#define STRING_EMTVVideoPauseCommand "Pause"
+#define STRING_EMTVVideoSaveCommand "Save"
+
+#define STRING_r_downloading_file_txt "Downloading video..."
+
+//main menu items
+#define STRING_EMTVListElementSearch "Search"
+#define STRING_EMTVListElementFeatured "Featured"
+#define STRING_EMTVListElementTopRated "Top rated"
+#define STRING_EMTVListElementMostViewed "Most viewed"
+#define STRING_EMTVListElementFavorites "Favorites"
+
+//about
+#define STRING_r_about_header_txt "About"
+#define STRING_r_about_1_txt "Open Videohub"
+#define STRING_r_about_2_txt "The Open Video Hub project is a community program sponsored by BLStream (http://blstream.com), based on the original software Global Video Hub\.n\nMore information about the program and the community can be found at: http://OpenVideoHub.com\nYou can also find there information how to be a part of the project."
+
+#define STRING_r_search_results_txt     "Search results"
+#define STRING_r_search_related_txt     "Related videos"
+#define STRING_r_search_featured_txt    "Featured videos"
+#define STRING_r_search_toprated_txt    "Top rated videos"
+#define STRING_r_search_mostwatched_txt "Most viewed videos"
+#define STRING_r_search_uservideos_txt  "User videos"
+#define STRING_r_search_favorites_txt  "Favorites"
+
+//video properties dialog
+#define STRING_r_properties_dialog_title_txt "Properties"
+#define STRING_r_properties_dialog_format_txt "File format"
+#define STRING_r_properties_dialog_duration_txt "Duration"
+#define STRING_r_properties_dialog_width_txt "Width"
+#define STRING_r_properties_dialog_height_txt "Height"
+#define STRING_r_properties_dialog_fps_txt "Frame rate"
+#define STRING_r_properties_dialog_samplerate_txt "Sample rate"
+#define STRING_r_properties_dialog_channels_txt "Channels"
+#define STRING_r_properties_dialog_video_compression_txt "Video compression"
+#define STRING_r_properties_dialog_audio_compression_txt "Audio compression"
+
+// new in version 1.0.6
+#define STRING_r_maxresults_user_defined "User defined"
+
+#define STRING_EMTVListElementSavedVideos "Saved videos"
+#define STRING_EMTVListElementTransferManager "Transfer manager"
+
+#define STRING_EMTVDeleteClipCommand "Delete"
+#define STRING_EMTVRenameClipCommand "Rename"
+
+#define STRING_r_delete_saved_video_txt "Delete selected video?"
+
+#define STRING_r_search_savedvideos_txt "Saved videos"
+
+#define STRING_r_details_dialog_filesize_txt "File size"
+
+#define STRING_EMTVOpenVideoByIdCommand "View by url or ID"
+#define STRING_r_enter_url_or_id_txt "Enter url or ID"
+
+#define STRING_r_http_no_location_header_txt "No location header in redirection response! Check your proxy settings."
+#define STRING_r_http_empty_response_txt "Empty response received from server! Check your proxy settings."
+#define STRING_r_http_html_response_txt "Application was redirected to a html page instead of FLV movie! Check your proxy settings."
+
+//new in >1.0.8
+#define STRING_EMTVCheckForUpdate "Check for updates"
+
+#define STRING_dialog_new_version_available_txt "New version is available. Download and install now?"
+
+#define STRING_EMTVScanDirectoriesCommand "Scan drives for FLV videos."
+
+#define STRING_EMTVSortByViewCountCommand "View count"
+#define STRING_EMTVSortByDateAddedCommand "Date added"
+#define STRING_EMTVSortByRatingCommand "Rating"
+#define STRING_EMTVSortByRelevanceCommand "Relevance"
+#define STRING_EMTVSortByCommand "Sort by"
+
+#define STRING_r_settings_username_txt "Username"
+#define STRING_r_settings_password_txt "Password"
+#define STRING_r_settings_videoplaybackmode_txt "Video playback mode"
+#define STRING_r_settings_sortresultsby_txt "Sort results by"
+
+#define STRING_r_settings_videoplaybackmode_landscape_txt "Landscape"
+#define STRING_r_settings_videoplaybackmode_portrait_txt "Portrait"
+
+//new in > 1.0.10
+#define STRING_r_settings_restricted_content_txt "Enable restricted content?"
+
+#define STRING_EMTVRemoveFromQueueCommand "Remove from queue"
+#define STRING_EMTVMoveUpCommand "Move up"
+#define STRING_EMTVMoveDownCommand "Move down"
+
+#define STRING_r_transfer_manager_queue_empty_txt "Queue empty"
+
+#define STRING_dialog_no_new_version_available_txt "Your version is up to date!"
+#define STRING_dialog_new_version_checking_txt "Checking for updates..."
+
+#define STRING_r_settings_accesspoint_txt "Access point"
+#define STRING_r_accesspoint_always_ask "Always ask"
+
+#define STRING_dialog_scanning_drives_txt "Scanning drives..."
+
+#define STRING_r_settings_upscale_txt "Scale video up"
+
+#define STRING_r_no "No"
+#define STRING_r_yes "Yes"
+
+#define STRING_r_incorrect_login_txt "Login failed! Check username & password!"
+#define STRING_r_error_uploading_file_txt "File uploading failed."
+
+#define STRING_r_upload_video_title "Title"
+#define STRING_r_upload_video_description "Description"
+#define STRING_r_upload_video_tags "Tags (space separated)"
+#define STRING_r_upload_video_category "Category"
+#define STRING_r_upload_video_public "Public"
+
+#define STRING_r_upload_video_category_FilmAndAnimation "Film and Animation"
+#define STRING_r_upload_video_category_Music "Music"
+#define STRING_r_upload_video_category_CarsAndVehicles "Autos & Vehicles"
+#define STRING_r_upload_video_category_PetsAndAnimals "Pets & Animals"
+#define STRING_r_upload_video_category_Sports "Sports"
+#define STRING_r_upload_video_category_TravelAndEvents "Travel & Events"
+#define STRING_r_upload_video_category_PeopleAndBlogs "People & Blogs"
+#define STRING_r_upload_video_category_Comedy "Comedy"
+#define STRING_r_upload_video_category_Entertainment "Entertainment"
+#define STRING_r_upload_video_category_NewsAndPolitics "News & Politics"
+#define STRING_r_upload_video_category_HowtoAndStyle "Howto & Style"
+#define STRING_r_upload_video_category_Education "Education"
+#define STRING_r_upload_video_category_ScienceAndTechnology "Science & Technology"
+#define STRING_r_upload_video_category_NonprofitsAndActivism "Nonprofits & Activism"
+
+#define STRING_r_http_could_not_connect_txt "Unable to connect. Please check your access point settings." 
+
+#define STRING_videos_in_category_txt "Videos: "
+
+#define STRING_EMTVAddCategoryCommand "Add category"
+#define STRING_EMTVRemoveCategoryCommand "Remove category"
+#define STRING_EMTVRenameCategoryCommand "Rename category"
+#define STRING_EMTVChangeVideoCategoryCommand "Change video category"
+
+#define STRING_EMTVSendViaBluetoothCommand "Send via bluetooth"
+
+#define STRING_EMTVVideoSwitchToFullScreenCommand "Switch to fullscreen"
+#define STRING_r_inbox "Inbox"
+
+#define STRING_EMTVActivateServersViewCommand "Video servers"
+
+#define STRING_EMTVListElementRecentlyUploaded "New videos"
+
+#define STRING_r_http_video_has_been_removed_txt "This video has been removed!"
+#define STRING_r_http_video_not_available_txt "Video not available!"
+#define STRING_r_http_no_plugin_available_txt "No plugin available to handle this video!"
+
+#define STRING_r_start_download "Transfer manager queue not empty. Start transfers now?"
+#define STRING_r_remove_entry_from_manager "Remove selected entry?"
+
+#define STRING_EMTVTransferManagerStartCommand "Start transfer(s)"
+#define STRING_EMTVTransferManagerStopCommand "Stop all transfers"
+#define STRING_EMTVRemoveFinishedEntriesCommand "Remove finished entries"
+
+#define STRING_r_video_already_added "Video already added to transfer manager"
+#define STRING_r_move_entry_warning "Moving this entry will stop current download"
+
+#define STRING_r_manager_entry_queued "Queued"
+#define STRING_r_manager_entry_downloading "Downloading"
+#define STRING_r_manager_entry_uploading "Uploading"
+#define STRING_r_manager_entry_finished "Finished"
+#define STRING_r_manager_entry_initializing "Initializing"
+#define STRING_r_manager_entry_failed "Failed"
+
+#define STRING_r_period_header "Chose period"
+#define STRING_r_period_today "Today"
+#define STRING_r_period_this_week "This week"
+#define STRING_r_period_this_month "This month"
+#define STRING_r_period_all_time "All time"
+
+#define STRING_EMTVLoginCommand "Login"
+#define STRING_dialog_logging_in_txt "Logging in..."
+
+#define STRING_plugin_status_not_logged_in_txt "Not logged in"
+#define STRING_plugin_status_logged_in_txt "Logged in"
+#define STRING_plugin_status_login_not_supported_txt "Login not supported"
+
+#define STRING_EMTVSetAsDefaultServerCommand "Set as default server"
+
+#define STRING_r_button_hide_txt "Hide"
+
+#define STRING_video_added_to_tm "Video added to transfer manager"
+
+#define STRING_EMTVTransferManagerRetryCommand "Retry transfer"
+
+#define STRING_r_settings_s60ui_setting_txt "UI model"
+#define STRING_r_settings_s60ui_txt "S60 UI"
+#define STRING_r_settings_custom_txt "Custom UI"
+
+#define STRING_dialog_two_tags_needed_txt "Please enter at least two tags!"
+#define STRING_dialog_title_and_description_needed_txt "Plaese enter title and description!"
+
+#define STRING_search_view_empty_txt "no videos"
+#define STRING_search_view_feature_not_supported_txt "Feature not supported"
+
+#define STRING_plugin_list_more_txt "More..."
+
+#define STRING_playlist_most_played_txt "Most played"
+#define STRING_playlist_recently_played_txt "Recently played"
+#define STRING_playlist_recently_saved_txt "Recently saved"
+
+#define STRING_EMTVListElementPlaylists "Playlists"
+
+#define STRING_EMTVGrabPlaylistElementCommand "Grab"
+#define STRING_EMTVFinishEditingPlaylistCommand "Finish"
+#define STRING_EMTVDropPlaylistElementCommand "Drop"
+#define STRING_EMTVAddPlaylistCommand "Add playlist"
+#define STRING_EMTVEditPlaylistCommand "Edit playlist"
+
+#define STRING_r_add_playlist_query "Playlist name:"
+#define STRING_r_playlist_create_new_txt "Create new"
+#define STRING_r_popup_add_to_playlist_txt "Add to playlist"
+#define STRING_upload_to_title_txt "Upload to:"
+
+#define STRING_r_connecting_txt "Connecting..."
+#define STRING_r_buffering_txt "Buffering "
+
+#define STRING_r_offline_mode_txt "Phone is in offline mode, do you want to create a connection?"
+
+#define STRING_EMTVListElementUploadVideo "Upload video"
+
+#define STRING_r_upscale_none "Never"
+#define STRING_r_upscale_normal "Normal"
+#define STRING_r_upscale_extended "Extended"

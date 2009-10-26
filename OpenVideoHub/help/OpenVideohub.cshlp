@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<cshproj>
+  <helpfileUID>0x2001A7DC</helpfileUID>
+  <directories>
+    <input></input>
+    <output></output>
+    <graphics></graphics>
+    <working></working>
+  </directories>
+  <files>
+    <source>
+      <file>OpenVideohub.rtf</file>
+    </source>
+    <graphicssource />
+    <destination>OpenVideohub.hlp</destination>
+    <customization>custom.xml</customization>
+  </files>
+</cshproj>
+

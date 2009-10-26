@@ -1,0 +1,2346 @@
+/*
+ * Copyright (c) 2007-2009 BLStream Oy.
+ *
+ * This file is part of OpenVideoHub.
+ *
+ * OpenVideoHub is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * OpenVideoHub is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with OpenVideoHub; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
+NAME EMTV
+
+#include <eikon.rh>
+#include <eikon.rsg>
+#include <avkon.rh>
+#include <avkon.rsg>
+
+#include <avkon.mbg>
+
+#include <CommonDialogs.hrh> // Enumerations
+#include <CommonDialogs.rh> // Resource structures
+
+#include <OpenVideohub.mbg>
+#include "OpenVideohub.loc"
+
+#include "emTube.hrh"
+
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF r_default_document_name { buf=""; }
+
+RESOURCE EIK_APP_INFO
+    {
+    menubar = r_emtv_menubar;
+    cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+    }
+
+
+RESOURCE MENU_BAR r_emtv_menubar
+    {
+    titles =
+        {
+        MENU_TITLE {menu_pane = r_emtv_menu;}
+        };
+    }
+
+RESOURCE MENU_PANE r_emtv_menu
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EAknSoftkeyExit;
+            txt = STRING_EMTVExitCommand;
+            }
+        };
+    }
+
+RESOURCE CBA r_emtv_search_view_cba
+{
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOptions;
+            txt = STRING_r_options_cba_button;
+            },
+        CBA_BUTTON
+            {
+            id = EMTVSearchViewBackCommand;
+            txt = STRING_r_back_cba_button;
+            }
+        };
+}
+
+RESOURCE CBA r_emtv_play_view_cba
+{
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOptions;
+            txt = STRING_r_options_cba_button;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = STRING_r_back_cba_button;
+            }
+        };
+}
+
+RESOURCE CBA r_emtv_play_view_playing_cba
+{
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EMTVVideoPlayCommand;
+            txt = STRING_EMTVVideoPauseCommand;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = STRING_r_back_cba_button;
+            }
+        };
+}
+
+RESOURCE CBA r_emtv_play_view_full_screen_cba
+{
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EMTVVideoBackFromFullScreenCommand;
+            txt = "";
+            },
+        CBA_BUTTON
+            {
+            id = EMTVVideoBackFromFullScreenCommand;
+            txt = "";
+            }
+        };
+}
+
+RESOURCE CBA r_emtv_progress_dialog_cba
+{
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyEmpty;
+            txt = "";
+            },
+        CBA_BUTTON
+            {
+            id = EMTVProgressDialogCancel;
+            txt = STRING_r_button_cancel_txt;
+            }
+        };
+}
+
+RESOURCE AVKON_VIEW r_emtv_main_view
+    {
+    cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+    menubar = r_emtv_main_view_menubar;
+    }
+
+RESOURCE MENU_BAR r_emtv_main_view_menubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_emtv_main_view_menu_pane;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_emtv_main_view_menu_pane
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EMTVSearchCommand;
+            txt = STRING_EMTVSearchCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVOpenVideoByIdCommand;
+            txt = STRING_EMTVOpenVideoByIdCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVActivateServersViewCommand;
+            txt = STRING_EMTVActivateServersViewCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVPlayLocalFileCommand;
+            txt = STRING_EMTVPlayLocalFileCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVActivateSettingsViewCommand;
+            txt = STRING_EMTVActivateSettingsViewCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVCheckForUpdate;
+            txt = STRING_EMTVCheckForUpdate;
+            },
+        MENU_ITEM
+            {
+            command = EMTVHelpCommand;
+            txt = STRING_EMTVHelpCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVAboutCommand;
+            txt = STRING_EMTVAboutCommand;
+            },
+        MENU_ITEM
+            {
+            command = EAknSoftkeyExit;
+            txt = STRING_EMTVExitCommand;
+            }
+        };
+    }
+
+//site selection:
+RESOURCE AVKON_VIEW r_emtv_servers_view
+    {
+    cba = R_AVKON_SOFTKEYS_OPTIONS_DONE;
+    menubar = r_emtv_servers_view_menubar;
+    }
+
+RESOURCE MENU_BAR r_emtv_servers_view_menubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_emtv_servers_view_menu_pane;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_emtv_servers_view_menu_pane
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EMTVSetAsDefaultServerCommand;
+            txt = STRING_EMTVSetAsDefaultServerCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVLoginCommand;
+            txt = STRING_EMTVLoginCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVActivateSettingsViewCommand;
+            txt = STRING_EMTVActivateSettingsViewCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVHelpCommand;
+            txt = STRING_EMTVHelpCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVAboutCommand;
+            txt = STRING_EMTVAboutCommand;
+            },
+        MENU_ITEM
+            {
+            command = EAknSoftkeyExit;
+            txt = STRING_EMTVExitCommand;
+            }
+        };
+    }
+
+//playlist view:
+RESOURCE AVKON_VIEW r_emtv_playlist_view
+    {
+    cba = R_AVKON_SOFTKEYS_OPTIONS_BACK;
+    menubar = r_emtv_playlist_view_menubar;
+    }
+
+RESOURCE MENU_BAR r_emtv_playlist_view_menubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_emtv_playlist_view_menu_pane;
+            }
+        };
+    }
+
+RESOURCE CBA r_emtv_playlist_edit_cba
+{
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EMTVGrabPlaylistElementCommand;
+            txt = STRING_EMTVGrabPlaylistElementCommand;
+            },
+        CBA_BUTTON
+            {
+            id = EMTVFinishEditingPlaylistCommand;
+            txt = STRING_EMTVFinishEditingPlaylistCommand;
+            }
+        };
+}
+
+RESOURCE CBA r_emtv_playlist_editing_cba
+{
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EMTVDropPlaylistElementCommand;
+            txt = STRING_EMTVDropPlaylistElementCommand;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyEmpty;
+            txt = "";
+            }
+        };
+}
+
+RESOURCE MENU_PANE r_emtv_playlist_view_menu_pane
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EMTVAddPlaylistCommand;
+            txt = STRING_EMTVAddPlaylistCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVEditPlaylistCommand;
+            txt = STRING_EMTVEditPlaylistCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVActivateSettingsViewCommand;
+            txt = STRING_EMTVActivateSettingsViewCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVHelpCommand;
+            txt = STRING_EMTVHelpCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVAboutCommand;
+            txt = STRING_EMTVAboutCommand;
+            },
+        MENU_ITEM
+            {
+            command = EAknSoftkeyExit;
+            txt = STRING_EMTVExitCommand;
+            }
+        };
+    }
+
+//transfer manager view
+RESOURCE AVKON_VIEW r_emtv_transfer_view
+    {
+    cba = R_AVKON_SOFTKEYS_OPTIONS_BACK;
+    menubar = r_emtv_transfer_view_menubar;
+    }
+
+RESOURCE MENU_BAR r_emtv_transfer_view_menubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_emtv_transfer_view_menu_pane;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_emtv_transfer_view_menu_pane
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EMTVTransferManagerStartCommand;
+            txt = STRING_EMTVTransferManagerStartCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVTransferManagerStopCommand;
+            txt = STRING_EMTVTransferManagerStopCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVTransferManagerRetryCommand;
+            txt = STRING_EMTVTransferManagerRetryCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVRemoveFinishedEntriesCommand;
+            txt = STRING_EMTVRemoveFinishedEntriesCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVRemoveFromQueueCommand;
+            txt = STRING_EMTVRemoveFromQueueCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVMoveUpCommand;
+            txt = STRING_EMTVMoveUpCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVMoveDownCommand;
+            txt = STRING_EMTVMoveDownCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVActivateSettingsViewCommand;
+            txt = STRING_EMTVActivateSettingsViewCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVHelpCommand;
+            txt = STRING_EMTVHelpCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVAboutCommand;
+            txt = STRING_EMTVAboutCommand;
+            },
+        MENU_ITEM
+            {
+            command = EAknSoftkeyExit;
+            txt = STRING_EMTVExitCommand;
+            }
+        };
+    }
+
+//play view
+RESOURCE AVKON_VIEW r_emtv_play_view
+    {
+    cba = r_emtv_play_view_cba;
+    menubar = r_emtv_play_view_menubar;
+    }
+
+RESOURCE MENU_BAR r_emtv_play_view_menubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_emtv_play_view_menu_pane;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_emtv_play_view_menu_pane
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EMTVVideoPlayCommand;
+            txt = STRING_EMTVVideoPlayCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVVideoSaveCommand;
+            txt = STRING_EMTVVideoSaveCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVVideoSwitchToFullScreenCommand;
+            txt = STRING_EMTVVideoSwitchToFullScreenCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVVideoPropertiesCommand;
+            txt = STRING_EMTVVideoPropertiesCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVPlayLocalFileCommand;
+            txt = STRING_EMTVPlayLocalFileCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVShowRelatedCommand;
+            txt = STRING_EMTVSearchViewShowRelatedCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVShowUserCommand;
+            txt = STRING_EMTVSearchViewShowUserCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVHelpCommand;
+            txt = STRING_EMTVHelpCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVAboutCommand;
+            txt = STRING_EMTVAboutCommand;
+            },
+        MENU_ITEM
+            {
+            command = EAknSoftkeyExit;
+            txt = STRING_EMTVExitCommand;
+            }
+        };
+    }
+
+RESOURCE AVKON_VIEW r_emtv_search_view
+    {
+    cba = r_emtv_search_view_cba;
+    menubar = r_emtv_search_view_menubar;
+#if 1 //change to 0 for 3rd edition
+    toolbar = r_emtv_search_view_toolbar;
+#endif
+    }
+
+
+#if 1 //change to 0 for 3rd edition
+RESOURCE AVKON_TOOLBAR r_emtv_search_view_toolbar
+    {
+    flags = KAknToolbarFixed;
+    items =
+		{
+		TBAR_CTRL // empty one
+			{
+			type = EAknCtButton;
+			id = 1313;
+			control = AVKON_BUTTON
+				{
+				states =
+					{
+					AVKON_BUTTON_STATE
+						{
+						txt = "";
+						}
+					};
+				};
+			},
+		TBAR_CTRL // empty one
+			{
+			type = EAknCtButton;
+			id = 1314;
+			control = AVKON_BUTTON
+				{
+				states =
+					{
+					AVKON_BUTTON_STATE
+						{
+						txt = "";
+						}
+					};
+				};
+			},
+		TBAR_CTRL // empty one
+			{
+			type = EAknCtButton;
+			id = 1315;
+			control = AVKON_BUTTON
+				{
+				states =
+					{
+					AVKON_BUTTON_STATE
+						{
+						txt = "";
+						}
+					};
+				};
+			},
+		TBAR_CTRL
+			{
+			type = EAknCtButton;
+			id = EMTVSearchViewTabToLeftCommand;
+			control = AVKON_BUTTON
+				{
+				states =
+					{
+					AVKON_BUTTON_STATE
+						{
+						bmpfile = "z:\\resource\\apps\\avkon2.mbm";
+						bmpid = EMbmAvkonQgn_indi_navi_arrow_left;
+						bmpmask = EMbmAvkonQgn_indi_navi_arrow_left_mask;
+						}
+					};
+				};
+			},
+		TBAR_CTRL
+			{
+			type = EAknCtButton;
+			id = EMTVSearchViewPlayCommand;
+			control = AVKON_BUTTON
+				{
+				states =
+					{
+					AVKON_BUTTON_STATE
+						{
+						bmpfile = "\\resource\\apps\\openvideohub.mbm";
+						bmpid = EMbmOpenvideohubIcn_play;
+						bmpmask = EMbmOpenvideohubIcn_play_mask;
+						}
+					};
+				};
+			},
+		TBAR_CTRL // empty one
+			{
+			type = EAknCtButton;
+			id = 1316;
+			control = AVKON_BUTTON
+				{
+				states =
+					{
+					AVKON_BUTTON_STATE
+						{
+						txt = "";
+						}
+					};
+				};
+			},
+		TBAR_CTRL
+			{
+			type = EAknCtButton;
+			id = EMTVSearchViewTabToRightCommand;
+			control = AVKON_BUTTON
+				{
+				states =
+					{
+					AVKON_BUTTON_STATE
+						{
+						bmpfile = "z:\\resource\\apps\\avkon2.mbm";
+						bmpid = EMbmAvkonQgn_indi_navi_arrow_right;
+						bmpmask = EMbmAvkonQgn_indi_navi_arrow_right_mask;
+						}
+					};
+				};
+			}
+		};
+    }
+#endif
+
+RESOURCE MENU_BAR r_emtv_search_view_menubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_emtv_search_view_menu_pane;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_emtv_search_view_menu_pane
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EMTVSearchCommand;
+            txt = STRING_EMTVNewSearchCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSortByCommand;
+            txt = STRING_EMTVSortByCommand;
+            cascade = r_emtv_search_sortby_menu_pane;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSearchViewPlayCommand;
+            txt = STRING_EMTVSearchViewPlayCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSendViaBluetoothCommand;
+            txt = STRING_EMTVSendViaBluetoothCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVScanDirectoriesCommand;
+            txt = STRING_EMTVScanDirectoriesCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVDeleteClipCommand;
+            txt = STRING_EMTVDeleteClipCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVRenameClipCommand;
+            txt = STRING_EMTVRenameClipCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSearchViewDownloadCommand;
+            txt = STRING_EMTVSearchViewDownloadCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSearchViewDetailsCommand;
+            txt = STRING_EMTVSearchViewDetailsCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSearchViewAddToFCommand;
+            txt = STRING_EMTVSearchViewAddToFCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSearchViewRemoveFromFCommand;
+            txt = STRING_EMTVSearchViewRemoveFromFCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVShowRelatedCommand;
+            txt = STRING_EMTVSearchViewShowRelatedCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVShowUserCommand;
+            txt = STRING_EMTVSearchViewShowUserCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVActivateSettingsViewCommand;
+            txt = STRING_EMTVActivateSettingsViewCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVHelpCommand;
+            txt = STRING_EMTVHelpCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVAboutCommand;
+            txt = STRING_EMTVAboutCommand;
+            },
+        MENU_ITEM
+            {
+            command = EAknSoftkeyExit;
+            txt = STRING_EMTVExitCommand;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_emtv_search_sortby_menu_pane
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EMTVSortByRelevanceCommand;
+            txt = STRING_EMTVSortByRelevanceCommand;
+            flags = EEikMenuItemRadioStart;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSortByDateAddedCommand;
+            txt = STRING_EMTVSortByDateAddedCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSortByViewCountCommand;
+            txt = STRING_EMTVSortByViewCountCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVSortByRatingCommand;
+            txt = STRING_EMTVSortByRatingCommand;
+            flags = EEikMenuItemRadioEnd;
+            }
+        };
+    }
+
+RESOURCE TBUF r_search_more_txt
+    {
+    buf = STRING_r_search_more_txt;
+    }
+
+RESOURCE MENU_BAR r_emtv_settings_view_menubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_emtv_settings_view_menu_pane;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_emtv_settings_view_menu_pane
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EMTVChangeSettingCommand;
+            txt = STRING_EMTVChangeSettingCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVHelpCommand;
+            txt = STRING_EMTVHelpCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVAboutCommand;
+            txt = STRING_EMTVAboutCommand;
+            },
+        MENU_ITEM
+            {
+            command = EMTVExitCommand;
+            txt = STRING_EMTVExitCommand;
+            }
+        };
+    }
+
+RESOURCE AVKON_VIEW r_emtv_settings_view
+    {
+    cba = R_AVKON_SOFTKEYS_OPTIONS_BACK;
+    menubar = r_emtv_settings_view_menubar;
+    }
+
+//settings
+RESOURCE AVKON_SETTING_PAGE r_settinglist_volume_page
+    {
+    label = STRING_r_settings_volume_txt;
+    type = EAknCtVolumeControl;
+    editor_resource_id = r_settings_volume_control;
+    }
+
+RESOURCE VOLUME r_settings_volume_control
+    {
+    flags = ESettingsVolumeControl;
+    value = 5;
+    }
+
+//upscale video
+RESOURCE AVKON_SETTING_PAGE r_settinglist_upscale_page
+    {
+    label  = STRING_r_settings_upscale_txt;
+    type   = EAknCtPopupSettingList;
+    editor_resource_id = r_popup_setting_list;
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_settinglist_upscale_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_upscale_texts;
+    popped_up_texts_resource = r_upscale_texts_array;
+    }
+
+RESOURCE ARRAY r_upscale_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT { value=0; text = STRING_r_upscale_none; },
+        AVKON_ENUMERATED_TEXT { value=1; text = STRING_r_upscale_normal; },
+        AVKON_ENUMERATED_TEXT { value=2; text = STRING_r_upscale_extended; }
+        };
+    }
+
+RESOURCE ARRAY r_upscale_texts_array
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_upscale_none; },
+        LBUF { txt = STRING_r_upscale_normal; },
+        LBUF { txt = STRING_r_upscale_extended; }
+        };
+    }
+
+
+//cache size
+RESOURCE AVKON_SETTING_PAGE r_settinglist_cachesize_page
+    {
+    label = STRING_r_settings_cachesize_txt;
+    type = EAknCtSlider;
+    editor_resource_id = r_settinglist_cachesize_control;
+    }
+
+RESOURCE SLIDER r_settinglist_cachesize_control
+    {
+    layout = EAknSettingsItemSliderLayout;
+    minvalue = 0;
+    maxvalue = 1024;
+    step = 32;
+    valuetype = EAknSliderValueBareFigure;
+    minlabel = STRING_r_settinglist_cachesize_control_min_txt;
+    maxlabel = STRING_r_settinglist_cachesize_control_max_txt;
+    }
+
+RESOURCE POPUP_SETTING_LIST r_popup_setting_list
+    {
+    flags = 0;
+    }
+
+//start playback option
+RESOURCE AVKON_SETTING_PAGE r_settinglist_startplayback_page
+    {
+    label  = STRING_r_settings_startplayback_txt;
+    type   = EAknCtPopupSettingList;
+    editor_resource_id = r_popup_setting_list;
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_settinglist_startplayback_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_startplayback_texts;
+    popped_up_texts_resource = r_startplayback_texts_array;
+    }
+
+RESOURCE ARRAY r_startplayback_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT { value=0; text = STRING_r_startplayback_manual; },
+        AVKON_ENUMERATED_TEXT { value=1; text = STRING_r_startplayback_after; },
+        AVKON_ENUMERATED_TEXT { value=2; text = STRING_r_startplayback_asap; }
+        };
+    }
+
+RESOURCE ARRAY r_startplayback_texts_array
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_startplayback_manual; },
+        LBUF { txt = STRING_r_startplayback_after; },
+        LBUF { txt = STRING_r_startplayback_asap; }
+        };
+    }
+
+//access point
+RESOURCE AVKON_SETTING_PAGE r_settinglist_accesspoint_page
+    {
+    label  = STRING_r_settings_accesspoint_txt;
+    type   = EAknCtPopupSettingList;
+    editor_resource_id = r_popup_setting_list;
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_settinglist_accesspoint_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_accesspoint_texts;
+    popped_up_texts_resource = r_accesspoint_texts_array;
+    }
+
+RESOURCE ARRAY r_accesspoint_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT { value=0; text = STRING_r_accesspoint_always_ask; }
+        };
+    }
+
+RESOURCE ARRAY r_accesspoint_texts_array
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_accesspoint_always_ask; }
+        };
+    }
+
+//sort results by
+RESOURCE AVKON_SETTING_PAGE r_settinglist_sortresultsby_page
+    {
+    label  = STRING_r_settings_sortresultsby_txt;
+    type   = EAknCtPopupSettingList;
+    editor_resource_id = r_popup_setting_list;
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_settinglist_sortresultsby_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_sortresultsby_texts;
+    popped_up_texts_resource = r_sortresultsby_texts_array;
+    }
+
+RESOURCE ARRAY r_sortresultsby_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT { value=0; text = STRING_EMTVSortByViewCountCommand; },
+        AVKON_ENUMERATED_TEXT { value=1; text = STRING_EMTVSortByDateAddedCommand; },
+        AVKON_ENUMERATED_TEXT { value=2; text = STRING_EMTVSortByRatingCommand; },
+        AVKON_ENUMERATED_TEXT { value=3; text = STRING_EMTVSortByRelevanceCommand; }
+        };
+    }
+
+RESOURCE ARRAY r_sortresultsby_texts_array
+    {
+    items =
+        {
+        LBUF { txt = STRING_EMTVSortByViewCountCommand; },
+        LBUF { txt = STRING_EMTVSortByDateAddedCommand; },
+        LBUF { txt = STRING_EMTVSortByRatingCommand; },
+        LBUF { txt = STRING_EMTVSortByRelevanceCommand; }
+        };
+    }
+
+//max results
+RESOURCE AVKON_SETTING_PAGE r_settinglist_maxresults_page
+    {
+    label  = STRING_r_settings_maxresults_txt;
+    type   = EAknCtPopupSettingList;
+    editor_resource_id = r_popup_setting_list;
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_settinglist_maxresults_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_maxresults_texts;
+    popped_up_texts_resource = r_maxresults_texts_array;
+    }
+
+RESOURCE ARRAY r_maxresults_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT { value=5; text = STRING_r_maxresults_5; },
+        AVKON_ENUMERATED_TEXT { value=8; text = STRING_r_maxresults_8; },
+        AVKON_ENUMERATED_TEXT { value=12; text = STRING_r_maxresults_12; },
+        AVKON_ENUMERATED_TEXT { value=0; text = STRING_r_maxresults_user_defined; }
+        };
+    }
+
+RESOURCE ARRAY r_maxresults_texts_array
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_maxresults_5; },
+        LBUF { txt = STRING_r_maxresults_8; },
+        LBUF { txt = STRING_r_maxresults_12; },
+        LBUF { txt = STRING_r_maxresults_user_defined; }
+        };
+    }
+
+RESOURCE AVKON_SETTING_PAGE r_settinglist_autorotate_page
+    {
+    label  = STRING_r_settings_autorotate_txt;
+    type   = EAknCtPopupSettingList;
+    editor_resource_id = r_popup_setting_list;
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_settinglist_autorotate_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_autorotate_texts;
+    popped_up_texts_resource = r_autorotate_texts_array;
+    }
+
+RESOURCE ARRAY r_autorotate_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT { value=0; text = STRING_r_autorotate_disable; },
+        AVKON_ENUMERATED_TEXT { value=1; text = STRING_r_autorotate_enable; }
+        };
+    }
+
+RESOURCE ARRAY r_autorotate_texts_array
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_autorotate_disable; },
+        LBUF { txt = STRING_r_autorotate_enable; }
+        };
+    }
+
+RESOURCE AVKON_SETTING_PAGE r_settinglist_tempmemory_page
+    {
+    label  = STRING_r_settings_tempmemory_txt;
+    type   = EAknCtPopupSettingList;
+    editor_resource_id = r_popup_setting_list;
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_settinglist_tempmemory_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_tempmemory_texts;
+    popped_up_texts_resource = r_tempmemory_texts_array;
+    }
+
+RESOURCE ARRAY r_tempmemory_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT { value=0; text = STRING_r_tempmemory_c; },
+        AVKON_ENUMERATED_TEXT { value=1; text = STRING_r_tempmemory_e; }
+        };
+    }
+
+RESOURCE ARRAY r_tempmemory_texts_array
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_tempmemory_c; },
+        LBUF { txt = STRING_r_tempmemory_e; }
+        };
+    }
+
+// s60Ui
+RESOURCE AVKON_SETTING_PAGE r_settinglist_s60ui_page
+    {
+    label  = STRING_r_settings_s60ui_setting_txt;
+    type   = EAknCtPopupSettingList;
+    editor_resource_id = r_popup_setting_list;
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_settinglist_s60ui_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_s60ui_texts;
+    popped_up_texts_resource = r_s60ui_texts_array;
+    }
+
+RESOURCE ARRAY r_s60ui_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT { value=0; text = STRING_r_settings_custom_txt; },
+        AVKON_ENUMERATED_TEXT { value=1; text = STRING_r_settings_s60ui_txt; }
+        };
+    }
+
+RESOURCE ARRAY r_s60ui_texts_array
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_settings_custom_txt; },
+        LBUF { txt = STRING_r_settings_s60ui_txt; }
+        };
+    }
+
+//settings list
+RESOURCE AVKON_SETTING_ITEM_LIST r_emtv_setting_list
+    {
+    title = STRING_r_settings_list_title_txt;
+    items =
+    	{
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsVolume;
+            setting_page_resource = r_settinglist_volume_page;
+            name = STRING_r_settings_volume_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsUpscaleVideo;
+            setting_page_resource = r_settinglist_upscale_page;
+            associated_resource = r_settinglist_upscale_texts;
+            name = STRING_r_settings_upscale_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsStartPlayback;
+            setting_page_resource = r_settinglist_startplayback_page;
+            associated_resource = r_settinglist_startplayback_texts;
+            name = STRING_r_settings_startplayback_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsMaxResults;
+            setting_page_resource = r_settinglist_maxresults_page;
+            associated_resource = r_settinglist_maxresults_texts;
+            name = STRING_r_settings_maxresults_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsSortResultsBy;
+            setting_page_resource = r_settinglist_sortresultsby_page;
+            associated_resource = r_settinglist_sortresultsby_texts;
+            name = STRING_r_settings_sortresultsby_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsAccessPoint;
+            setting_page_resource = r_settinglist_accesspoint_page;
+            associated_resource = r_settinglist_accesspoint_texts;
+            name = STRING_r_settings_accesspoint_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsCacheSize;
+            setting_page_resource = r_settinglist_cachesize_page;
+            name = STRING_r_settings_cachesize_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsAutoRotate;
+            setting_page_resource = r_settinglist_autorotate_page;
+            associated_resource = r_settinglist_autorotate_texts;
+            name = STRING_r_settings_autorotate_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsTempMemory;
+            setting_page_resource = r_settinglist_tempmemory_page;
+            associated_resource = r_settinglist_tempmemory_texts;
+            name = STRING_r_settings_tempmemory_txt;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = EMTVSettingsS60Ui;
+            setting_page_resource = r_settinglist_s60ui_page;
+            associated_resource = r_settinglist_s60ui_texts;
+            name = STRING_r_settings_s60ui_setting_txt;
+            }
+        };
+    }
+
+//about dialog
+RESOURCE DIALOG r_emtv_about_dialog
+    {
+    flags =  EEikDialogFlagNoShadow | EGeneralQueryFlags | EEikDialogFlagNoBorder;
+    buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+    items=
+        {
+        DLG_LINE
+            {
+            type = EAknCtPopupHeadingPane;
+            id = EAknMessageQueryHeaderId;
+            itemflags = EEikDlgItemNonFocusing;
+            control = AVKON_HEADING
+                {
+                headinglayout = R_AVKON_LIST_HEADING_PANE_POPUPS;
+                };
+            },
+
+        DLG_LINE
+            {
+            type = EAknCtMessageQuery;
+            id = EAknMessageQueryContentId;
+            control = AVKON_MESSAGE_QUERY
+                {
+                };
+            }
+        };
+    }
+
+RESOURCE TBUF r_emtv_about_header_txt
+    {
+    buf = STRING_r_about_header_txt;
+    }
+
+RESOURCE TBUF r_emtv_about_1_txt
+    {
+    buf = STRING_r_about_1_txt;
+    }
+
+RESOURCE TBUF r_emtv_about_2_txt
+    {
+    buf = STRING_r_about_2_txt;
+    }
+
+RESOURCE DIALOG r_emtv_search_dialog
+  {
+  flags = EGeneralQueryFlags;
+  buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+  items =
+    {
+    DLG_LINE
+      {
+      type = EAknCtQuery;
+      id = EGeneralQuery;
+      control = AVKON_DATA_QUERY
+        {
+        layout = EDataLayout;
+        label = STRING_r_search_dialog_search_for;
+        control = EDWIN
+          {
+          flags = EEikEdwinNoHorizScrolling | EEikEdwinResizable;
+          width = 15;
+          lines = 1;
+          maxlength = 50;
+          };
+        };
+      }
+    };
+  }
+
+RESOURCE DIALOG r_emtv_enter_id_dialog
+  {
+  flags = EGeneralQueryFlags;
+  buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+  items =
+    {
+    DLG_LINE
+      {
+      type = EAknCtQuery;
+      id = EGeneralQuery;
+      control = AVKON_DATA_QUERY
+        {
+        layout = EDataLayout;
+        label = STRING_r_enter_url_or_id_txt;
+        control = EDWIN
+          {
+          flags = EEikEdwinNoHorizScrolling | EEikEdwinResizable;
+          width = 15;
+          lines = 1;
+          maxlength = 50;
+          };
+        };
+      }
+    };
+  }
+
+RESOURCE TBUF r_main_view_element_search
+    {
+    buf = STRING_EMTVListElementSearch;
+    }
+
+RESOURCE TBUF r_main_view_element_featured
+    {
+    buf = STRING_EMTVListElementFeatured;
+    }
+
+RESOURCE TBUF r_main_view_element_top_rated
+    {
+    buf = STRING_EMTVListElementTopRated;
+    }
+
+RESOURCE TBUF r_main_view_element_most_viewed
+    {
+    buf = STRING_EMTVListElementMostViewed;
+    }
+
+RESOURCE TBUF r_main_view_element_transfermanager
+    {
+    buf = STRING_EMTVListElementTransferManager;
+    }
+
+RESOURCE TBUF r_main_view_element_savedclips
+    {
+    buf = STRING_EMTVListElementSavedVideos;
+    }
+
+RESOURCE TBUF r_main_view_element_favorites
+    {
+    buf = STRING_EMTVListElementFavorites;
+    }
+
+RESOURCE TBUF r_main_view_recently_uploaded
+    {
+    buf = STRING_EMTVListElementRecentlyUploaded;
+    }
+
+RESOURCE TBUF r_http_connection_timed_out_txt
+    {
+    buf = STRING_r_network_timeout_txt;
+    }
+
+RESOURCE TBUF r_http_no_location_header_txt
+    {
+    buf = STRING_r_http_no_location_header_txt;
+    }
+
+RESOURCE TBUF r_http_empty_response_txt
+    {
+    buf = STRING_r_http_empty_response_txt;
+    }
+
+RESOURCE TBUF r_http_html_response_txt
+    {
+    buf = STRING_r_http_html_response_txt;
+    }
+
+RESOURCE TBUF r_http_could_not_connect_txt
+	{
+	buf = STRING_r_http_could_not_connect_txt;
+	}
+
+RESOURCE TBUF r_http_video_has_been_removed_txt
+    {
+    buf = STRING_r_http_video_has_been_removed_txt;
+    }
+
+RESOURCE TBUF r_http_video_not_available_txt
+    {
+    buf = STRING_r_http_video_not_available_txt;
+    }
+
+RESOURCE TBUF r_http_no_plugin_available_txt
+    {
+    buf = STRING_r_http_no_plugin_available_txt;
+    }
+
+//
+RESOURCE FILENAMEPROMPTDIALOG r_filename_prompt_dialog
+    {
+    filename_prompt = STRING_r_select_filename_txt;
+    }
+
+RESOURCE MEMORYSELECTIONDIALOG r_memory_selection_dialog
+    {
+    title = STRING_r_select_drive_txt;
+    softkey_1 = STRING_r_select_drive_button_select_txt;
+    softkey_2 = STRING_r_button_cancel_txt;
+    locations =
+        {
+        LOCATION { root_path = "C:\\"; default_folder = ""; },
+        LOCATION { root_path = "E:\\"; default_folder = ""; }
+        };
+    }
+
+RESOURCE FILESELECTIONDIALOG r_file_selection_dialog
+    {
+    root_path = "";
+    default_folder = "";
+    filters = {};
+    }
+
+RESOURCE TBUF r_player_cannot_open_file_txt
+    {
+    buf = STRING_r_player_cannot_open_file_txt;
+    }
+
+RESOURCE TBUF r_search_no_videos_found_txt
+    {
+    buf = STRING_r_search_no_videos_found_txt;
+    }
+
+RESOURCE TBUF r_http_error_txt
+    {
+    buf = STRING_r_http_error_txt;
+    }
+
+RESOURCE DIALOG r_error_dialog
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_CONFIRMATION_QUERY
+                {
+                layout         = EConfirmationQueryLayout;
+                label          = "";
+                bmpfile        = "z:\\resource\\apps\\avkon2.mbm";
+                bmpid          = EMbmAvkonQgn_note_error;
+                bmpmask        = EMbmAvkonQgn_note_error_mask;
+                };
+            }
+        };
+    }
+
+RESOURCE DIALOG r_checking_for_updates_note
+    {
+    flags   = EAknWaitNoteFlags;
+    buttons = R_AVKON_SOFTKEYS_EMPTY;
+    items =
+        {
+        DLG_LINE
+            {
+            type    = EAknCtNote;
+            id      = 10;
+            control = AVKON_NOTE
+                {
+                layout         = EWaitLayout;
+                singular_label = STRING_dialog_new_version_checking_txt;
+                plural_label   = "";
+                animation      = R_QGN_GRAF_WAIT_BAR_ANIM;
+                };
+            }
+        };
+    }
+
+RESOURCE TBUF r_dialog_new_version_available_txt
+    {
+    buf = STRING_dialog_new_version_available_txt;
+    }
+
+RESOURCE TBUF r_dialog_no_new_version_available_txt
+    {
+    buf = STRING_dialog_no_new_version_available_txt;
+    }
+
+RESOURCE DIALOG r_update_info_dialog
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_YES_NO;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_CONFIRMATION_QUERY
+                {
+                layout         = EConfirmationQueryLayout;
+                label          = "";
+                bmpfile        = "z:\\resource\\apps\\avkon2.mbm";
+                bmpid          = EMbmAvkonQgn_note_info;
+                bmpmask        = EMbmAvkonQgn_note_info_mask;
+                };
+            }
+        };
+    }
+
+RESOURCE TBUF r_popup_remove_from_favorites_txt
+    {
+    buf = STRING_EMTVSearchViewRemoveFromFCommand;
+    }
+
+RESOURCE TBUF r_popup_add_to_favorites_txt
+    {
+    buf = STRING_EMTVSearchViewAddToFCommand;
+    }
+
+RESOURCE TBUF r_popup_view_txt
+    {
+    buf = STRING_EMTVSearchViewPlayCommand;
+    }
+
+RESOURCE TBUF r_popup_details_txt
+    {
+    buf = STRING_EMTVSearchViewDetailsCommand;
+    }
+
+RESOURCE TBUF r_remove_from_favorites_txt
+    {
+    buf = STRING_r_remove_from_favorites_txt;
+    }
+
+RESOURCE TBUF r_delete_saved_video_txt
+    {
+    buf = STRING_r_delete_saved_video_txt;
+    }
+
+RESOURCE DIALOG r_yes_no_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_YES_NO;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_CONFIRMATION_QUERY
+                {
+                layout = EConfirmationQueryLayout;
+                label = "";
+                };
+            }
+        };
+    }
+
+RESOURCE TBUF r_not_enough_space_txt
+    {
+    buf = STRING_r_not_enough_space_txt;
+    }
+
+RESOURCE TBUF r_cannot_copy_file_txt
+    {
+    buf = STRING_r_cannot_copy_file_txt;
+    }
+
+//file save progress
+RESOURCE TBUF r_saving_file_txt
+    {
+    buf = STRING_r_saving_file_txt;
+    }
+
+RESOURCE CBA r_emtv_save_file_progress_cba
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            txt = "";
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyCancel;
+            txt = STRING_r_button_cancel_txt;
+            }
+        };
+    }
+
+RESOURCE DIALOG r_emtv_save_file_progress_dialog
+    {
+    flags = EAknProgressNoteFlags;
+    buttons = r_emtv_save_file_progress_cba;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtNote;
+            id = EMTVFileSaveProgressNote;
+            control = AVKON_NOTE
+                {
+                layout = EProgressLayout;
+                singular_label = STRING_r_saving_file_txt;
+                plural_label = STRING_r_saving_file_txt;
+                };
+            }
+        };
+    }
+
+//details dialog
+RESOURCE DIALOG r_emtv_details_dialog
+    {
+    flags = EAknDialogMarkableList;
+    buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtDoubleListBox;
+            id = ESelectionListControl;
+            control = LISTBOX
+                {
+                flags = EAknListBoxMarkableList | EAknListBoxLoopScrolling | EAknListBoxDisableHighlight;
+                };
+            }
+        };
+    }
+
+RESOURCE MENU_BAR r_emtv_details_dialog_menubar
+    {
+    }
+
+RESOURCE TBUF r_details_dialog_author_txt
+    {
+    buf = STRING_r_details_dialog_author_txt;
+    }
+
+RESOURCE TBUF r_details_dialog_title_txt
+    {
+    buf = STRING_r_details_dialog_title_txt;
+    }
+
+RESOURCE TBUF r_details_dialog_viewcount_txt
+    {
+    buf = STRING_r_details_dialog_viewcount_txt;
+    }
+
+RESOURCE TBUF r_details_dialog_ratings_txt
+    {
+    buf = STRING_r_details_dialog_ratings_txt;
+    }
+
+RESOURCE TBUF r_details_dialog_duration_txt
+    {
+    buf = STRING_r_details_dialog_duration_txt;
+    }
+
+RESOURCE TBUF r_details_dialog_filesize_txt
+    {
+    buf = STRING_r_details_dialog_filesize_txt;
+    }
+
+//file download progress
+RESOURCE TBUF r_downloading_file_txt
+    {
+    buf = STRING_r_downloading_file_txt;
+    }
+
+RESOURCE CBA r_emtv_download_file_progress_cba
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EMTVSearchViewHideCommand;
+			txt = STRING_r_button_hide_txt;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyCancel;
+            txt = STRING_r_button_cancel_txt;
+            }
+        };
+    }
+
+RESOURCE DIALOG r_emtv_download_file_progress_dialog
+    {
+    flags = EAknProgressNoteFlags;
+    buttons = r_emtv_download_file_progress_cba;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtNote;
+            id = EMTVFileDownloadProgressNote;
+            control = AVKON_NOTE
+                {
+                layout = EProgressLayout;
+                singular_label = STRING_r_downloading_file_txt;
+                plural_label = STRING_r_downloading_file_txt;
+                };
+            }
+        };
+    }
+
+//search navi pane!
+RESOURCE TBUF r_search_results_txt
+    {
+    buf = STRING_r_search_results_txt;
+    }
+
+RESOURCE TBUF r_search_related_txt
+    {
+    buf = STRING_r_search_related_txt;
+    }
+
+RESOURCE TBUF r_search_featured_txt
+    {
+    buf = STRING_r_search_featured_txt;
+    }
+
+RESOURCE TBUF r_search_toprated_txt
+    {
+    buf = STRING_r_search_toprated_txt;
+    }
+
+RESOURCE TBUF r_search_mostwatched_txt
+    {
+    buf = STRING_r_search_mostwatched_txt;
+    }
+
+RESOURCE TBUF r_search_uservideos_txt
+    {
+    buf = STRING_r_search_uservideos_txt;
+    }
+
+RESOURCE TBUF r_search_favorites_txt
+    {
+    buf = STRING_r_search_favorites_txt;
+    }
+
+RESOURCE TBUF r_search_savedclips_txt
+    {
+    buf = STRING_r_search_savedvideos_txt;
+    }
+
+RESOURCE TBUF r_search_newclips_txt
+    {
+    buf = STRING_EMTVListElementRecentlyUploaded;
+    }
+
+//properties dialog
+RESOURCE TBUF r_properties_dialog_title_txt
+    {
+    buf = STRING_r_properties_dialog_title_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_format_txt
+    {
+    buf = STRING_r_properties_dialog_format_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_duration_txt
+    {
+    buf = STRING_r_properties_dialog_duration_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_video_compression_txt
+    {
+    buf = STRING_r_properties_dialog_video_compression_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_width_txt
+    {
+    buf = STRING_r_properties_dialog_width_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_height_txt
+    {
+    buf = STRING_r_properties_dialog_height_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_fps_txt
+    {
+    buf = STRING_r_properties_dialog_fps_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_samplerate_txt
+    {
+    buf = STRING_r_properties_dialog_samplerate_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_channels_txt
+    {
+    buf = STRING_r_properties_dialog_channels_txt;
+    }
+
+RESOURCE TBUF r_properties_dialog_audio_compression_txt
+    {
+    buf = STRING_r_properties_dialog_audio_compression_txt;
+    }
+
+RESOURCE DIALOG r_settings_maxresults_dialog
+    {
+    title = STRING_r_settings_maxresults_txt;
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control= AVKON_DATA_QUERY
+                {
+                layout = ENumberLayout;
+                label = STRING_r_settings_maxresults_txt;
+                control = AVKON_INTEGER_EDWIN
+                    {
+                    min = 1;
+                    max = 999;
+                    };
+                };
+            }
+        };
+    }
+
+RESOURCE CONTEXT_PANE r_volume_naviimage_muted
+    {
+    bmpid = EMbmAvkonQgn_indi_speaker_muted;
+    bmpmask = EMbmAvkonQgn_indi_speaker_muted_mask;
+    bmpfile = "z:\\resource\\apps\\avkon2.mbm";
+    }
+
+RESOURCE TBUF r_transfer_manager_queue_empty_txt
+    {
+    buf = STRING_r_transfer_manager_queue_empty_txt;
+    }
+
+RESOURCE DIALOG r_scanning_drives_note
+    {
+    flags   = EAknWaitNoteFlags;
+    buttons = R_AVKON_SOFTKEYS_EMPTY;
+    items =
+        {
+        DLG_LINE
+            {
+            type    = EAknCtNote;
+            id      = 10;
+            control = AVKON_NOTE
+                {
+                layout         = EWaitLayout;
+                singular_label = STRING_dialog_scanning_drives_txt;
+                plural_label   = "";
+                animation      = R_QGN_GRAF_WAIT_BAR_ANIM;
+                };
+            }
+        };
+    }
+
+RESOURCE DIALOG r_logging_in_note
+    {
+    flags   = EAknWaitNoteFlags;
+    buttons = R_AVKON_SOFTKEYS_EMPTY;
+    items =
+        {
+        DLG_LINE
+            {
+            type    = EAknCtNote;
+            id      = 10;
+            control = AVKON_NOTE
+                {
+                layout         = EWaitLayout;
+                singular_label = STRING_dialog_logging_in_txt;
+                plural_label   = "";
+                animation      = R_QGN_GRAF_WAIT_BAR_ANIM;
+                };
+            }
+        };
+    }
+
+RESOURCE TBUF r_incorrect_login_txt
+    {
+    buf = STRING_r_incorrect_login_txt;
+    }
+
+RESOURCE TBUF r_error_uploading_file_txt
+    {
+    buf = STRING_r_error_uploading_file_txt;
+    }
+
+//upload video resource!
+RESOURCE MENU_BAR r_upload_video_dialog_menu_bar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_upload_video_dialog_menu_pane;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_upload_video_dialog_menu_pane
+    {
+    }
+
+RESOURCE DIALOG r_upload_video_edit_dialog
+    {
+    flags = EAknDialogGenericFullScreen;
+    buttons = R_AVKON_SOFTKEYS_DONE_CANCEL;
+    form = r_upload_video_form;
+    }
+
+RESOURCE FORM r_upload_video_form
+    {
+    flags = EEikFormUseDoubleSpacedFormat | EEikFormEditModeOnly;
+    items =
+        {
+        DLG_LINE_INDIRECT
+            {
+            line = r_upload_video_field_title;
+            },
+        DLG_LINE_INDIRECT
+            {
+            line = r_upload_video_field_description;
+            },
+        DLG_LINE_INDIRECT
+            {
+            line = r_upload_video_field_tags;
+            },
+        DLG_LINE_INDIRECT
+            {
+            line = r_upload_video_field_category;
+            },
+        DLG_LINE_INDIRECT
+            {
+            line = r_upload_video_field_public;
+            }
+        };
+    }
+
+RESOURCE DLG_LINE r_upload_video_field_title
+    {
+    type = EEikCtEdwin;
+    prompt = STRING_r_upload_video_title;
+    id = EUploadVideoFieldTitle;
+    control = EDWIN
+        {
+        flags = EEikEdwinNoAutoSelection;
+        maxlength = KUploadVideoMaxFieldLength;
+        };
+    }
+
+RESOURCE DLG_LINE r_upload_video_field_description
+    {
+    type = EEikCtEdwin;
+    prompt = STRING_r_upload_video_description;
+    id = EUploadVideoFieldDescription;
+    control = EDWIN
+        {
+        flags = EEikEdwinNoAutoSelection;
+        maxlength = KUploadVideoMaxFieldLength;
+        };
+    }
+
+RESOURCE DLG_LINE r_upload_video_field_tags
+    {
+    type = EEikCtEdwin;
+    prompt = STRING_r_upload_video_tags;
+    id = EUploadVideoFieldTags;
+    control = EDWIN
+        {
+        flags = EEikEdwinNoAutoSelection;
+        maxlength = KUploadVideoMaxFieldLength;
+        };
+    }
+
+RESOURCE ARRAY r_options_category_list
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_upload_video_category_FilmAndAnimation; },
+        LBUF { txt = STRING_r_upload_video_category_Music; },
+        LBUF { txt = STRING_r_upload_video_category_CarsAndVehicles; },
+        LBUF { txt = STRING_r_upload_video_category_PetsAndAnimals; },
+        LBUF { txt = STRING_r_upload_video_category_Sports; },
+        LBUF { txt = STRING_r_upload_video_category_TravelAndEvents; },
+        LBUF { txt = STRING_r_upload_video_category_PeopleAndBlogs; },
+        LBUF { txt = STRING_r_upload_video_category_Comedy; },
+        LBUF { txt = STRING_r_upload_video_category_Entertainment; },
+        LBUF { txt = STRING_r_upload_video_category_NewsAndPolitics; },
+        LBUF { txt = STRING_r_upload_video_category_HowtoAndStyle; },
+        LBUF { txt = STRING_r_upload_video_category_Education; },
+        LBUF { txt = STRING_r_upload_video_category_ScienceAndTechnology; },
+        LBUF { txt = STRING_r_upload_video_category_NonprofitsAndActivism; }
+        };
+    }
+
+RESOURCE DLG_LINE r_upload_video_field_category
+    {
+    prompt = STRING_r_upload_video_category;
+    id = EUploadVideoFieldCategory;
+    type = EAknCtPopupFieldText;
+    itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+    control = POPUP_FIELD_TEXT
+        {
+        popupfield = POPUP_FIELD
+            {
+            width = 10;
+            };
+        textarray = r_options_category_list;
+        };
+    }
+
+RESOURCE ARRAY r_options_public_private
+    {
+    items =
+        {
+        LBUF { txt = STRING_r_yes; },
+        LBUF { txt = STRING_r_no; }
+        };
+    }
+
+RESOURCE DLG_LINE r_upload_video_field_public
+    {
+    prompt = STRING_r_upload_video_public;
+    id = EUploadVideoFieldPublic;
+    type = EAknCtPopupFieldText;
+    itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+    control = POPUP_FIELD_TEXT
+        {
+        popupfield = POPUP_FIELD
+            {
+            width = 10;
+            };
+        textarray = r_options_public_private;
+        };
+    }
+
+RESOURCE TBUF r_upload_video_txt
+    {
+    buf = STRING_EMTVUploadVideoCommand;
+    }
+
+RESOURCE TBUF r_transfer_manager_txt
+    {
+    buf = STRING_EMTVListElementTransferManager;
+    }
+
+RESOURCE TBUF r_new_search_txt
+    {
+    buf = STRING_EMTVNewSearchCommand;
+    }
+
+RESOURCE TBUF r_videos_in_category_txt
+    {
+    buf = STRING_videos_in_category_txt;
+    }
+
+RESOURCE TBUF r_diskc_txt
+    {
+    buf = STRING_r_tempmemory_c;
+    }
+
+RESOURCE TBUF r_diske_txt
+    {
+    buf = STRING_r_tempmemory_e;
+    }
+
+RESOURCE TBUF r_inbox_txt
+    {
+    buf = STRING_r_inbox;
+    }
+
+RESOURCE TBUF r_start_download_txt
+    {
+    buf = STRING_r_start_download;
+    }
+
+RESOURCE TBUF r_remove_entry_from_manager_txt
+    {
+    buf = STRING_r_remove_entry_from_manager;
+    }
+
+RESOURCE TBUF r_video_already_added_txt
+    {
+    buf = STRING_r_video_already_added;
+    }
+
+RESOURCE TBUF r_move_entry_warning_txt
+    {
+    buf = STRING_r_move_entry_warning;
+    }
+
+RESOURCE TBUF r_manager_entry_queued_txt
+    {
+    buf = STRING_r_manager_entry_queued;
+    }
+
+RESOURCE TBUF r_manager_entry_downloading_txt
+    {
+    buf = STRING_r_manager_entry_downloading;
+    }
+
+RESOURCE TBUF r_manager_entry_uploading_txt
+    {
+    buf = STRING_r_manager_entry_uploading;
+    }
+
+RESOURCE TBUF r_manager_entry_finished_txt
+    {
+    buf = STRING_r_manager_entry_finished;
+    }
+
+RESOURCE TBUF r_manager_entry_initializing_txt
+    {
+    buf = STRING_r_manager_entry_initializing;
+    }
+
+RESOURCE TBUF r_manager_entry_failed_txt
+    {
+    buf = STRING_r_manager_entry_failed;
+    }
+
+RESOURCE TBUF r_period_header_txt
+    {
+    buf = STRING_r_period_header;
+    }
+
+RESOURCE TBUF r_period_today_txt
+    {
+    buf = STRING_r_period_today;
+    }
+
+RESOURCE TBUF r_period_this_week_txt
+    {
+    buf = STRING_r_period_this_week;
+    }
+
+RESOURCE TBUF r_period_this_month_txt
+    {
+    buf = STRING_r_period_this_month;
+    }
+
+RESOURCE TBUF r_period_all_time_txt
+    {
+    buf = STRING_r_period_all_time;
+    }
+
+RESOURCE TBUF r_video_added_to_tm_txt
+    {
+    buf = STRING_video_added_to_tm;
+    }
+
+RESOURCE TBUF r_popup_download_txt
+    {
+    buf = STRING_EMTVSearchViewDownloadCommand;
+    }
+
+RESOURCE DIALOG r_dialog_username_password_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtMultilineQuery;
+            id = EMultilineFirstLine;
+            control = AVKON_DATA_QUERY
+                {
+                layout = EMultiDataFirstEdwin;
+                label = STRING_r_settings_username_txt;
+                control = EDWIN
+                    {
+                    flags = EEikEdwinNoHorizScrolling | EEikEdwinResizable;
+                    width = 25;
+                    lines = 1;
+                    maxlength = 128;
+                    };
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtMultilineQuery;
+            id = EMultilineSecondLine;
+            control = AVKON_DATA_QUERY
+                {
+                layout = EMultiDataSecondSecEd;
+                label = STRING_r_settings_password_txt;
+                control = SECRETED
+                    {
+                    num_letters = 128;
+                    };
+                };
+            }
+        };
+    }
+
+RESOURCE TBUF r_popup_login_txt
+    {
+    buf = STRING_EMTVLoginCommand;
+    }
+
+RESOURCE TBUF r_popup_select_site_txt
+    {
+    buf = STRING_EMTVSetAsDefaultServerCommand;
+    }
+
+RESOURCE TBUF r_plugin_status_logged_in_txt
+    {
+    buf = STRING_plugin_status_logged_in_txt;
+    }
+
+RESOURCE TBUF r_plugin_status_not_logged_in_txt
+    {
+    buf = STRING_plugin_status_not_logged_in_txt;
+    }
+
+RESOURCE TBUF r_plugin_status_login_not_supported_txt
+    {
+    buf = STRING_plugin_status_login_not_supported_txt;
+    }
+
+RESOURCE TBUF r_dialog_title_and_description_needed_txt
+    {
+    buf = STRING_dialog_title_and_description_needed_txt;
+    }
+
+RESOURCE TBUF r_dialog_two_tags_needed_txt
+    {
+    buf = STRING_dialog_two_tags_needed_txt;
+    }
+
+RESOURCE TBUF r_search_view_empty_txt
+    {
+    buf = STRING_search_view_empty_txt;
+    }
+
+RESOURCE TBUF r_search_view_feature_not_supported_txt
+    {
+    buf = STRING_search_view_feature_not_supported_txt;
+    }
+
+RESOURCE TBUF r_search_view_plugin_error_txt
+    {
+    buf = STRING_search_view_plugin_error_txt;
+    }
+
+RESOURCE TBUF r_plugin_list_more_txt
+    {
+    buf = STRING_plugin_list_more_txt;
+    }
+
+RESOURCE TBUF r_playlist_most_played_txt
+    {
+    buf = STRING_playlist_most_played_txt;
+    }
+
+RESOURCE TBUF r_playlist_recently_played_txt
+    {
+    buf = STRING_playlist_recently_played_txt;
+    }
+
+RESOURCE TBUF r_playlist_recently_saved_txt
+    {
+    buf = STRING_playlist_recently_saved_txt;
+    }
+
+RESOURCE TBUF r_popup_add_to_playlist_txt
+    {
+    buf = STRING_r_popup_add_to_playlist_txt;
+    }
+
+RESOURCE TBUF r_main_view_element_playlists
+	{
+	buf = STRING_EMTVListElementPlaylists;
+	}
+
+RESOURCE TBUF r_playlists_txt
+	{
+	buf = STRING_EMTVListElementPlaylists;
+	}
+
+RESOURCE DIALOG r_emtv_add_playlist_dialog
+  {
+  flags = EGeneralQueryFlags;
+  buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+  items =
+    {
+    DLG_LINE
+      {
+      type = EAknCtQuery;
+      id = EGeneralQuery;
+      control = AVKON_DATA_QUERY
+        {
+        layout = EDataLayout;
+        label = STRING_r_add_playlist_query;
+        control = EDWIN
+          {
+          flags = EEikEdwinNoHorizScrolling | EEikEdwinResizable;
+          width = 15;
+          lines = 1;
+          maxlength = 64;
+          };
+        };
+      }
+    };
+  }
+
+RESOURCE TBUF r_playlist_create_new_txt
+	{
+	buf = STRING_r_playlist_create_new_txt;
+	}
+
+RESOURCE TBUF r_upload_to_title_txt
+	{
+	buf = STRING_upload_to_title_txt;
+	}
+
+RESOURCE TBUF r_connecting_txt
+	{
+	buf = STRING_r_connecting_txt;
+	}
+
+RESOURCE TBUF r_buffering_txt
+	{
+	buf = STRING_r_buffering_txt;
+	}
+
+RESOURCE TBUF r_offline_mode_txt
+	{
+	buf = STRING_r_offline_mode_txt;
+	}
+
+RESOURCE TBUF r_main_view_element_uploadvideo
+	{
+	buf = STRING_EMTVListElementUploadVideo;
+	}

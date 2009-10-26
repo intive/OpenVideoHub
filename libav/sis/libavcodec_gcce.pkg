@@ -1,0 +1,20 @@
+; libavcodec.pkg
+;
+;Language - standard language definitions
+&EN
+
+; standard SIS file header
+#{"libavcodec"},(0xA0009329),1,0,2,TYPE=SISAPP
+
+;Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+;Localized Vendor Name
+%{"BLStream"}
+
+;Unique Vendor name
+:"libavcodec"
+
+; Files to copy
+"c:\symbian\9.1\s60_3rd\epoc32\release\gcce\urel\libavaudio.dll"                         - "!:\sys\bin\libavaudio.dll"
+"c:\symbian\9.1\s60_3rd\epoc32\release\gcce\urel\libavvideo.dll"                         - "!:\sys\bin\libavvideo.dll"

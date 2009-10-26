@@ -1,0 +1,47 @@
+1.0.26
+- 5th edition support, toolbar, stylus popup menu, touch UI.
+1.0.20
+- Added FLV recognizer.
+1.0.19
+- Added bilinear scaling for all the icons in both S60 and custom UI.
+- Added Metacafe support.
+- Added new custom UI
+- Splash screen now disapears after 10 seconds.
+- Added video upload to the daily motion plugin.
+1.0.18
+- Added transfer manager.
+- Added ability to change time frame when looking for most viewed/top rated videos.
+1.0.17
+- added "Recently Uploaded" support for YouTube.
+- Added search box to the "Saved clips" list.
+1.0.16:
+- Saved clips list now shows small icon indicating that file in on a mem card.
+- Introduced site plugin system. Currently available plugins: youtube & dailymotion.
+- Volume keys are now swapped when phone is in landscape mode.
+- Added an option in settings to enable/disable restricted (18+) content.
+- Cba buttons now works in fullscreen -> they allow to switch to portrait mode.
+- Added an option to send saved clip via bluetooth.
+- It is now possible to play videos from Inbox, Inbox has been added to a list of drives
+  in "Open local file" drive selection dialog.
+1.0.15:
+- Added splash screen.
+- Improvements in audio decoding engine, double buffering added.
+1.0.14:
+- Portrait->landscape switch now uses a zoom/rotation transition.
+- Optimized video upscaling.
+- Optimized color space conversions.
+- Added an option in the settings to turn video upscaling on/off. Default off.
+- Added VP6 video decoder. Slow.
+- Added search history.
+- Added contextual help.
+- Manually opened files are now added to the "Saved Clips" list.
+- Video duration is now visible on the search results list.
+- Added an option to set access point in the settings. Default is "Always ask". Might be broken, not tested.
+- The status pane now includes information about speed and % of downloaded part.
+- Fixed the "scan for flv files" to search for case insensitive files.
+- Scan for local files now also retrieves thumbnails from videos that do not have one.
+- Improved A/V sync.
+- Fixed problems with special characters in search queries.
+- Playback is now possible as soon as 5% of the movie has been downloaded.
+  Playback will however stop if there is not enough data available to play.
+- Added video upload & transfer manager. Not finished yet.

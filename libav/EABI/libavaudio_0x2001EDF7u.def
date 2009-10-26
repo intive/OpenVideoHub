@@ -1,0 +1,7 @@
+EXPORTS
+	AUDIO_Close @ 1 NONAME
+	AUDIO_Decode @ 2 NONAME
+	AUDIO_Init @ 3 NONAME
+	AV_AudioCleanup @ 4 NONAME
+	AV_AudioRegister @ 5 NONAME
+

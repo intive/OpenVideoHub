@@ -1,0 +1,8 @@
+EXPORTS
+	AV_VideoCleanup @ 1 NONAME
+	AV_VideoRegister @ 2 NONAME
+	VIDEO_Close @ 3 NONAME
+	VIDEO_Decode @ 4 NONAME
+	VIDEO_Init @ 5 NONAME
+	VIDEO_SetOptions @ 6 NONAME
+

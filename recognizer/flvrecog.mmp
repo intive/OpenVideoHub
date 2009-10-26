@@ -1,0 +1,22 @@
+
+TARGET		flvrecog_0x2001A7E4.dll
+CAPABILITY	Protserv
+TARGETTYPE	plugin
+UID         0x10009d8d 0x2001A7E4
+VENDORID	0
+
+OPTION CW -w nounusedarg
+
+USERINCLUDE     ..\emTube\inc
+
+SOURCEPATH      .
+SOURCE          flvrecog.cpp
+systeminclude   \EPOC32\INCLUDE
+systeminclude	\EPOC32\INCLUDE\ECOM 
+
+library         EUSER.LIB APMIME.LIB EFSRV.LIB
+
+start resource flvrecog_0x2001A7E4.rss
+UID 0x2001A7E4
+targetpath \resource\plugins
+end

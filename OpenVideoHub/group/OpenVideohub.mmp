@@ -1,0 +1,229 @@
+/*
+ * Copyright (c) 2007-2009 BLStream Oy.
+ *
+ * This file is part of OpenVideoHub.
+ *
+ * OpenVideoHub is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * OpenVideoHub is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with OpenVideoHub; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
+CAPABILITY    ReadUserData WriteUserData NetworkServices LocalServices
+TARGETPATH    \sys\bin
+TARGET        OpenVideohub_0x2001A7DC.exe
+TARGETTYPE    exe
+
+UID            0x100039CE 0x2001A7DC
+
+EPOCSTACKSIZE      0x10fff
+EPOCHEAPSIZE      1048576 4194304
+
+OPTION CW -w nounusedarg
+
+//MACRO ENABLE_LOG
+
+MACRO ENABLE_TRANSFER_MANAGER
+MACRO ENABLE_SITE_SELECTION
+
+//MACRO ENABLE_FINDBOX_IN_SAVEDCLIPS
+
+//MACRO ENABLE_CUSTOM_UI
+MACRO ENABLE_MORE_ON_PLUGIN_LIST
+//MACRO ENABLE_PLAYLISTS
+
+//MACRO ENABLE_CHECK_FOR_UPDATES_MENU_ITEM
+//MACRO ENABLE_OPEN_BY_ID_MENU_ITEM
+MACRO ENABLE_TABS
+
+ALWAYS_BUILD_AS_ARM
+
+USERINCLUDE       ..\inc
+USERINCLUDE       ..\src
+USERINCLUDE       ..\..\libav
+
+USERINCLUDE       ..\yuvasm
+USERINCLUDE       \epoc32\include\lminclude
+
+USERINCLUDE       ..\..\Plugins\Interface
+SYSTEMINCLUDE     ..\..\Plugins\Interface
+
+SYSTEMINCLUDE     \epoc32\include
+SYSTEMINCLUDE     \epoc32\include\ecom
+SYSTEMINCLUDE     \epoc32\include\http
+SYSTEMINCLUDE     \epoc32\include\stdapis
+
+SOURCEPATH      ..\src
+SOURCE          emTube.cpp
+SOURCE          emTubeApplication.cpp 
+SOURCE          emTubeAppUi.cpp
+SOURCE          emTubeDocument.cpp
+SOURCE          emTubeMainView.cpp
+SOURCE          emTubeMainViewContainer.cpp
+SOURCE          emTubeSplashView.cpp
+SOURCE          emTubeSplashViewContainer.cpp
+SOURCE          emTubeSearchView.cpp
+SOURCE          emTubeSearchViewContainer.cpp
+SOURCE          emTubeDetailsDialog.cpp
+SOURCE          emTubeSettingsView.cpp
+SOURCE          emTubeSettingsViewContainer.cpp
+SOURCE          emTubeSettingsData.cpp emTubeSettingsListBox.cpp
+SOURCE          emTubeTransferView.cpp
+SOURCE          emTubeTransferViewContainer.cpp
+SOURCE          emTubeHttpEngine.cpp
+SOURCE          emTubeTimeOutTimer.cpp
+SOURCE          emTubeIdleTimer.cpp
+SOURCE          emTubeVideoEntry.cpp
+SOURCE          emTubePhoneInfo.cpp
+SOURCE          emTubeCache.cpp
+SOURCE          emTubeTransferManager.cpp
+SOURCE          emTubeVideoUploadDialog.cpp
+SOURCE          emTubeFileScanner.cpp
+SOURCE          emTubeImageLoader.cpp
+SOURCE          emTubePlayView.cpp
+SOURCE          emTubePlayViewContainer.cpp
+SOURCE          emTubePlayer.cpp
+SOURCE          emTubePlayerTimer.cpp
+SOURCE          emTubeYUV2RGB.cpp
+SOURCE          emTubePlayerDemuxer.cpp
+SOURCE          emTubePlayerAudioDevSound.cpp
+SOURCE          emTubeThumbnail.cpp
+SOURCE          emTubeLineStatusMonitor.cpp
+SOURCE          emTubeConnectionProgressObserver.cpp 
+
+SOURCE          emTubeInboxFlvFinder.cpp
+
+SOURCE          emTubeServersView.cpp
+
+SOURCE          emTubeServersViewContainer.cpp emTubePlaylistView.cpp
+SOURCE          emTubePlaylistViewContainer.cpp
+SOURCE          emTubePlaylistManager.cpp
+
+SOURCE          emTubePluginManager.cpp
+
+SOURCE          emTubeUiSymbian.cpp
+SOURCE          emTubeUiCustom.cpp
+SOURCE          emTubeUiItem.cpp
+SOURCE          emTubeUiItemGfx.cpp
+
+SOURCE          emTubeOsd.cpp
+
+MACRO HAVE_AV_CONFIG_H
+OPTION GCC -D_ISOC9X_SOURCE
+OPTION ARMCC --gnu
+OPTION ARMLINK --diag_suppress 6238
+
+LIBRARY           euser.lib
+LIBRARY           apparc.lib
+LIBRARY           http.lib
+LIBRARY           eikcore.lib  
+LIBRARY           avkon.lib  
+LIBRARY           bafl.lib
+LIBRARY           gdi.lib  
+LIBRARY           efsrv.lib
+LIBRARY           egul.lib
+LIBRARY           cone.lib 
+LIBRARY           commonengine.lib
+LIBRARY           commondialogs.lib
+LIBRARY           estor.lib
+LIBRARY           aknicon.lib
+LIBRARY           fbscli.lib 
+LIBRARY           eikcoctl.lib
+LIBRARY           esock.lib
+LIBRARY           inetprotutil.lib
+LIBRARY           commdb.lib
+LIBRARY           imageconversion.lib
+LIBRARY           mediaclientaudiostream.lib
+LIBRARY           sendui.lib
+
+LIBRARY           charconv.lib
+LIBRARY           ws32.lib
+LIBRARY           apgrfx.lib
+
+LIBRARY           eikdlg.lib
+LIBRARY           bitgdi.lib
+LIBRARY           scdv.lib
+LIBRARY           hal.lib
+LIBRARY           hash.lib
+
+LIBRARY           etel3rdparty.lib
+
+LIBRARY           remconcoreapi.lib
+LIBRARY           remconinterfacebase.lib
+
+LIBRARY           eikcdlg.lib
+LIBRARY           eikctl.lib
+LIBRARY           commonui.lib
+LIBRARY           apmime.lib
+LIBRARY           MMFDevSound.lib
+
+LIBRARY           sendas2.lib
+LIBRARY           MGFetch.lib
+
+LIBRARY           hlplch.lib
+
+LIBRARY           aknskins.lib
+LIBRARY           aknskinsrv.lib
+
+LIBRARY           libc.lib
+LIBRARY           libm.lib
+
+LIBRARY           libavvideo_0x2001EDF6.lib
+LIBRARY           libavaudio_0x2001EDF7.lib
+
+LIBRARY           msgs.lib 
+LIBRARY           ecom.lib
+LIBRARY           centralrepository.lib
+LIBRARY           ConnMon.lib
+
+LIBRARY           touchfeedback.lib //disable this for 3rd edition
+
+LIBRARY           sysutil.lib
+
+#ifndef WINSCW
+STATICLIBRARY     libyuvasm.lib
+#endif
+
+sourcepath    ..\group
+#if 0
+START RESOURCE    OpenVideohub.RSS
+HEADER
+targetpath    \resource\apps
+#ifdef WINSCW
+LANG          SC
+#else
+LANG          SC 01
+#endif
+END
+#endif
+START RESOURCE OpenVideohub_0x2001A7DC.rss
+	HEADER
+	TARGETPATH \resource\apps
+	LANG SC 01
+END
+
+#if 0
+START RESOURCE    OpenVideohub_reg.rss
+#ifdef WINSCW
+TARGETPATH    \private\10003a3f\apps
+#else
+TARGETPATH    \private\10003a3f\import\apps
+#endif
+END
+#endif
+START RESOURCE OpenVideohub_0x2001A7DC_reg.rss
+	TARGETPATH \private\10003a3f\import\apps
+END
+   
+START resource OpenVideohub_loc.rss
+	TARGETPATH \resource\apps
+END

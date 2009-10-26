@@ -1,0 +1,36 @@
+TARGET          MetacafePlugin_0x2001A7E3.dll
+TARGETTYPE      PLUGIN
+CAPABILITY      NetworkServices LocalServices ReadUserData WriteUserData
+
+UID 0x10009D8D 0x2001A7E3
+VENDORID 0
+
+OPTION CW -w nounusedarg
+
+SOURCEPATH      ..
+SOURCE          pluginUtils.cpp
+
+SOURCEPATH      .
+SOURCE          Proxy.cpp
+SOURCE          Plugin.cpp
+
+USERINCLUDE     .
+USERINCLUDE     ..
+USERINCLUDE     ..\Interface
+SYSTEMINCLUDE   ..\Interface
+SYSTEMINCLUDE   \epoc32\include 
+SYSTEMINCLUDE   \epoc32\include\ecom
+
+start resource 2001A7E3.rss
+TARGET MetacafePlugin_0x2001A7E3.rsc
+TARGETPATH \resource\plugins
+end
+
+LIBRARY         euser.lib
+LIBRARY         ecom.lib
+LIBRARY         eikcore.lib
+LIBRARY			aknicon.lib
+LIBRARY			efsrv.lib
+LIBRARY			charconv.lib
+LIBRARY         InetProtUtil.lib
+
