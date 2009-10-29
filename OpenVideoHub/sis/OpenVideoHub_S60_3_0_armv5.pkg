@@ -48,9 +48,6 @@ ENDIF
 "c:\symbian\9.1\s60_3rd\epoc32\release\armv5\urel\OpenVideohub_0x2001A7DC.exe"              - "!:\sys\bin\OpenVideohub_0x2001A7DC.exe"
 "c:\symbian\9.1\s60_3rd\epoc32\data\z\private\10003a3f\import\apps\OpenVideohub_0x2001A7DC_reg.rsc" - "!:\private\10003a3f\import\apps\OpenVideohub_0x2001A7DC_reg.rsc"
 
-"c:\Symbian\9.1\s60_3rd\epoc32\release\armv5\urel\flvrecog_0x2001A7E4.dll"                    - "!:\sys\bin\flvrecog_0x2001A7E4.dll"
-"c:\Symbian\9.1\s60_3rd\epoc32\data\z\resource\plugins\flvrecog_0x2001A7E4.rsc"               - "!:\resource\plugins\flvrecog_0x2001A7E4.rsc"
-
 "C:\Symbian\9.1\s60_3rd\Epoc32\release\armv5\urel\MetacafePlugin_0x2001A7E3.dll"              -"!:\sys\bin\MetacafePlugin_0x2001A7E3.dll"
 "C:\Symbian\9.1\s60_3rd\Epoc32\data\z\resource\plugins\MetacafePlugin_0x2001A7E3.rsc"         -"!:\Resource\Plugins\MetacafePlugin_0x2001A7E3.rsc"
 "C:\Symbian\9.1\s60_3rd\Epoc32\data\z\resource\apps\MetacafePlugin.mbm"            -"!:\Resource\apps\MetacafePlugin.mbm"
