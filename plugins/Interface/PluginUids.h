@@ -1,7 +1,7 @@
 #ifndef PLUGIN_UIDS_H
 #define PLUGIN_UIDS_H
 
-#define KPluginInterfaceUidInt 0x2001A7DF
+#define KPluginInterfaceUidInt 0xA0001875
 
 #define PLUGIN_API_VERSION 1
 

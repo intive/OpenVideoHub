@@ -14,7 +14,7 @@ for the OpenVideoHub application.
  
 2. 3rd and 5th S60 editions.
  Althought most of the code specific for 5th edition is behind ifdefs, there are 2 exceptions:
-  - OpenVideoHub_0x2001A7DC.rss file contains code that has to be enabled for 5th edition.
+  - OpenVideoHub_0xA0001874.rss file contains code that has to be enabled for 5th edition.
     The '#if 0' statement in lines 507 and 513 should be changed to '#if 1' if the application
     is being compiled for S60 5th edition.
   - In OpenVideoHub.mmp file a reference to a touchfeedback.lib (in line 168) should be disabled if

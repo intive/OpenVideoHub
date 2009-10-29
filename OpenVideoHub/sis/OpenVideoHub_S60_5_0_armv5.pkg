@@ -24,7 +24,7 @@
 &EN
 
 ; standard SIS file header
-#{"Open Videohub"},(0x2001A7DC),1,0,39,TYPE=SISAPP
+#{"Open Videohub"},(0xA0001874),1,0,39,TYPE=SISAPP
 
 ;Supports Series 60 v 5.0
 [0x1028315F], 0, 0, 0, {"Series60ProductID"}
@@ -39,21 +39,21 @@
 "license.txt" - "",FILETEXT, TEXTEXIT
 
 ; Files to copy
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\release\armv5\urel\OpenVideohub_0x2001A7DC.exe"              - "!:\sys\bin\OpenVideohub_0x2001A7DC.exe"
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\private\10003a3f\import\apps\OpenVideohub_0x2001A7DC_reg.rsc" - "!:\private\10003a3f\import\apps\OpenVideohub_0x2001A7DC_reg.rsc"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\release\armv5\urel\OpenVideohub_0xA0001874.exe"              - "!:\sys\bin\OpenVideohub_0xA0001874.exe"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\private\10003a3f\import\apps\OpenVideohub_0xA0001874_reg.rsc" - "!:\private\10003a3f\import\apps\OpenVideohub_0xA0001874_reg.rsc"
 
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\release\armv5\urel\MetacafePlugin_0x2001A7E3.dll"              -"!:\sys\bin\MetacafePlugin_0x2001A7E3.dll"
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\plugins\MetacafePlugin_0x2001A7E3.rsc"         -"!:\Resource\Plugins\MetacafePlugin_0x2001A7E3.rsc"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\release\armv5\urel\MetacafePlugin_0xA0001879.dll"              -"!:\sys\bin\MetacafePlugin_0xA0001879.dll"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\plugins\MetacafePlugin_0xA0001879.rsc"         -"!:\Resource\Plugins\MetacafePlugin_0xA0001879.rsc"
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\apps\MetacafePlugin.mbm"            -"!:\Resource\apps\MetacafePlugin.mbm"
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\apps\MetacafePlugin.mif"            -"!:\Resource\apps\MetacafePlugin.mif"
 
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\release\armv5\urel\DailyMotionPlugin_0x2001A7E1.dll"           -"!:\sys\bin\DailyMotionPlugin_0x2001A7E1.dll"
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\plugins\DailyMotionPlugin_0x2001A7E1.rsc"      -"!:\Resource\Plugins\DailyMotionPlugin_0x2001A7E1.rsc"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\release\armv5\urel\DailyMotionPlugin_0xA0001877.dll"           -"!:\sys\bin\DailyMotionPlugin_0xA0001877.dll"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\plugins\DailyMotionPlugin_0xA0001877.rsc"      -"!:\Resource\Plugins\DailyMotionPlugin_0xA0001877.rsc"
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\apps\DailyMotionPlugin.mbm"         -"!:\Resource\apps\DailyMotionPlugin.mbm"
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\apps\DailyMotionPlugin.mif"         -"!:\Resource\apps\DailyMotionPlugin.mif"
 
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\release\armv5\urel\YouTubePlugin_0x2001EDF9.dll"               -"!:\sys\bin\YouTubePlugin_0x2001EDF9.dll"
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\plugins\YouTubePlugin_0x2001EDF9.rsc"          -"!:\Resource\Plugins\YouTubePlugin_0x2001EDF9.rsc"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\release\armv5\urel\YouTubePlugin_0xA000187B.dll"               -"!:\sys\bin\YouTubePlugin_0xA000187B.dll"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\plugins\YouTubePlugin_0xA000187B.rsc"          -"!:\Resource\Plugins\YouTubePlugin_0xA000187B.rsc"
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\apps\YouTubePlugin.mbm"             -"!:\Resource\apps\YouTubePlugin.mbm"
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\Epoc32\data\z\resource\apps\YouTubePlugin.mif"             -"!:\Resource\apps\YouTubePlugin.mif"
 
@@ -61,13 +61,13 @@
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\resource\apps\OpenVideohub_aif.mif"        - "!:\resource\apps\OpenVideohub_aif.mif"
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\resource\apps\OpenVideohub.mif"            - "!:\resource\apps\OpenVideohub.mif"
 "c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\resource\apps\OpenVideohub.mbm"            - "!:\resource\apps\OpenVideohub.mbm"
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\resource\apps\OpenVideohub_0x2001A7DC.Rsc"            - "!:\resource\apps\OpenVideohub_0x2001A7DC.Rsc"
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\resource\apps\OpenVideohub_0x2001A7DC.R01"            - "!:\resource\apps\OpenVideohub_0x2001A7DC.R01"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\resource\apps\OpenVideohub_0xA0001874.Rsc"            - "!:\resource\apps\OpenVideohub_0xA0001874.Rsc"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\data\z\resource\apps\OpenVideohub_0xA0001874.R01"            - "!:\resource\apps\OpenVideohub_0xA0001874.R01"
 
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\release\armv5\urel\libavaudio_0x2001EDF7.dll"                  - "!:\sys\bin\libavaudio_0x2001EDF7.dll"
-"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\release\armv5\urel\libavvideo_0x2001EDF6.dll"                  - "!:\sys\bin\libavvideo_0x2001EDF6.dll"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\release\armv5\urel\libavaudio_0xA000187D.dll"                  - "!:\sys\bin\libavaudio_0xA000187D.dll"
+"c:\s60\devices\S60_5th_edition_SDK_v0.9_2\epoc32\release\armv5\urel\libavvideo_0xA000187C.dll"                  - "!:\sys\bin\libavvideo_0xA000187C.dll"
 
 "..\help\OpenVideohub.hlp"                                                       -"!:\resource\help\OpenVideohub.hlp"
 
 ;required for application to be covered by backup/restore facility 
-"backup_registration.xml"                                                          -"!:\private\2001A7DC\backup_registration.xml"
+"backup_registration.xml"                                                          -"!:\private\A0001874\backup_registration.xml"

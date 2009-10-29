@@ -1,7 +1,3 @@
-- Replace the UIDs in main application and all plugins
-  with UIDs from unprotected range so that the application can be self signed.
-  Might require removing recognizer, as it requires heavy capabilities.
-
 - Allow users to define categories in "Saved clips" and move clips around
   categories.
 

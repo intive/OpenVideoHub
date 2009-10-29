@@ -18,28 +18,24 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-#include "PluginUids.h"
-#include "RegistryInfo.rh"
+#include <appinfo.rh>
 
-RESOURCE REGISTRY_INFO theInfo
+UID2 KUidAppRegistrationResourceFile
+UID3 0xA0001874
+
+RESOURCE APP_REGISTRATION_INFO 
 	{
-	dll_uid = 0x2001A7E1;
-	interfaces = 
+	app_file="OpenVideohub_0xA0001874";
+	//
+	localisable_resource_file="\\resource\\apps\\OpenVideohub_loc";
+
+	hidden = KAppNotHidden;
+	embeddability = KAppNotEmbeddable;
+	newfile = KAppDoesNotSupportNewFile;
+	launch = KAppLaunchInForeground;
+
+	datatype_list=
 		{
-		INTERFACE_INFO
-			{
-			interface_uid = KPluginInterfaceUidInt;
-			implementations = 
-				{
-				IMPLEMENTATION_INFO
-					{
-					implementation_uid = 0x2001A7E0;
-					version_no = PLUGIN_API_VERSION;
-					display_name = "DailyMotion Plugin";
-					opaque_data = "";
-					default_data = "dailymotion";
-					}
-				};
-			}
+		DATATYPE { priority=EDataTypePriorityHigh; type="application/OpenVideohub"; }
 		};
 	}

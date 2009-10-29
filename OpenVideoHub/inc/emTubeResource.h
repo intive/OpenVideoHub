@@ -24,7 +24,7 @@
 //#include <emTube.rsg>
 //#include <emTube.mbg>
 
-#include <OpenVideohub_0x2001A7DC.rsg>
+#include <OpenVideohub_0xA0001874.rsg>
 #include <OpenVideohub.mbg>
 
 #endif //EMTUBE_RESOURCE_H

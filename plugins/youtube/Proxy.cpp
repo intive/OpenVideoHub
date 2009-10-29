@@ -26,7 +26,7 @@
 
 const TImplementationProxy ImplementationTable[] = 
 	{
-	IMPLEMENTATION_PROXY_ENTRY( 0x2001EDF8,	CPlugin::NewL )
+	IMPLEMENTATION_PROXY_ENTRY( 0xA000187A,	CPlugin::NewL )
 	};
 
 EXPORT_C const TImplementationProxy* ImplementationGroupProxy( TInt& aTableCount )

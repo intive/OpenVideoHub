@@ -28,7 +28,7 @@
 #endif
 
 // UID for the application, this should correspond to the uid defined in the mmp file
-static const TUid KUidEmTubeApp = {0x2001A7DC};
+static const TUid KUidEmTubeApp = {0xA0001874};
 
 /**
 * CEmTubeApplication

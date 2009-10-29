@@ -18,24 +18,28 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-#include <appinfo.rh>
+#include "PluginUids.h"
+#include "RegistryInfo.rh"
 
-UID2 KUidAppRegistrationResourceFile
-UID3 0x2001A7DC
-
-RESOURCE APP_REGISTRATION_INFO 
+RESOURCE REGISTRY_INFO theInfo
 	{
-	app_file="OpenVideohub_0x2001A7DC";
-	//
-	localisable_resource_file="\\resource\\apps\\OpenVideohub_loc";
-
-	hidden = KAppNotHidden;
-	embeddability = KAppNotEmbeddable;
-	newfile = KAppDoesNotSupportNewFile;
-	launch = KAppLaunchInForeground;
-
-	datatype_list=
+	dll_uid = 0xA000187B;
+	interfaces = 
 		{
-		DATATYPE { priority=EDataTypePriorityHigh; type="application/OpenVideohub"; }
+		INTERFACE_INFO
+			{
+			interface_uid = KPluginInterfaceUidInt;
+			implementations = 
+				{
+				IMPLEMENTATION_INFO
+					{
+					implementation_uid = 0xA000187A;
+					version_no = PLUGIN_API_VERSION;
+					display_name = "YouTube Plugin";
+					opaque_data = "";
+					default_data = "youtube";
+					}
+				};
+			}
 		};
 	}

@@ -4,7 +4,7 @@
 // Declares info for two implementations
 RESOURCE REGISTRY_INFO theInfo
 	{
-	dll_uid = 0x2001A7E3;
+	dll_uid = 0xA0001879;
 	interfaces = 
 		{
 		INTERFACE_INFO
@@ -14,7 +14,7 @@ RESOURCE REGISTRY_INFO theInfo
 				{
 				IMPLEMENTATION_INFO
 					{
-					implementation_uid = 0x2001A7E2;
+					implementation_uid = 0xA0001878;
 					version_no = PLUGIN_API_VERSION;
 					display_name = "Metacafe Plugin";
 					opaque_data = "";

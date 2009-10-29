@@ -20,10 +20,10 @@
 
 CAPABILITY    ReadUserData WriteUserData NetworkServices LocalServices
 TARGETPATH    \sys\bin
-TARGET        OpenVideohub_0x2001A7DC.exe
+TARGET        OpenVideohub_0xA0001874.exe
 TARGETTYPE    exe
 
-UID            0x100039CE 0x2001A7DC
+UID            0x100039CE 0xA0001874
 
 EPOCSTACKSIZE      0x10fff
 EPOCHEAPSIZE      1048576 4194304
@@ -177,8 +177,8 @@ LIBRARY           aknskinsrv.lib
 LIBRARY           libc.lib
 LIBRARY           libm.lib
 
-LIBRARY           libavvideo_0x2001EDF6.lib
-LIBRARY           libavaudio_0x2001EDF7.lib
+LIBRARY           libavvideo_0xA000187C.lib
+LIBRARY           libavaudio_0xA000187D.lib
 
 LIBRARY           msgs.lib 
 LIBRARY           ecom.lib
@@ -205,7 +205,7 @@ LANG          SC 01
 #endif
 END
 #endif
-START RESOURCE OpenVideohub_0x2001A7DC.rss
+START RESOURCE OpenVideohub_0xA0001874.rss
 	HEADER
 	TARGETPATH \resource\apps
 	LANG SC 01
@@ -220,7 +220,7 @@ TARGETPATH    \private\10003a3f\import\apps
 #endif
 END
 #endif
-START RESOURCE OpenVideohub_0x2001A7DC_reg.rss
+START RESOURCE OpenVideohub_0xA0001874_reg.rss
 	TARGETPATH \private\10003a3f\import\apps
 END
    

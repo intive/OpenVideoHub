@@ -23,7 +23,7 @@
 
 RESOURCE REGISTRY_INFO theInfo
 	{
-	dll_uid = 0x2001EDF9;
+	dll_uid = 0xA0001877;
 	interfaces = 
 		{
 		INTERFACE_INFO
@@ -33,11 +33,11 @@ RESOURCE REGISTRY_INFO theInfo
 				{
 				IMPLEMENTATION_INFO
 					{
-					implementation_uid = 0x2001EDF8;
+					implementation_uid = 0xA0001876;
 					version_no = PLUGIN_API_VERSION;
-					display_name = "YouTube Plugin";
+					display_name = "DailyMotion Plugin";
 					opaque_data = "";
-					default_data = "youtube";
+					default_data = "dailymotion";
 					}
 				};
 			}

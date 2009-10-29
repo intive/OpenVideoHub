@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE cshlp SYSTEM "file:///C:/S60/devices/S60_5th_Edition_SDK_v0.9_2/epoc32/tools/cshlpcmp/dtd/cshlp.dtd">
 <?xml:stylesheet href="file:///C:/S60/devices/S60_5th_Edition_SDK_v0.9_2/epoc32/tools/cshlpcmp/xsl/cshlp.xsl" title="cshlp" type="text/xsl"?>
-<cshlp helpfileUID="536979420">
+<cshlp helpfileUID="2684360820">
 
 
 
 
 
 
-<topic topicID="1" categoryUID="536979420"><category>Open Videohub</category><topictitle>Open Videohub Help</topictitle>
+<topic topicID="1" categoryUID="2684360820"><category>Open Videohub</category><topictitle>Open Videohub Help</topictitle>
 
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Open Videohub Application</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0"><b>Open Videohub</b> allows you to access videos on several video content providing sites.</p>
@@ -24,7 +24,7 @@
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0"><b>Access </b>program settings.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">You can contact the author by sending an email to gvh@blstream.com</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">More information about the program, online FAQ and updates can be found at: http://blstream.com/gvh/</p>
-</topic><topic topicID="2" categoryUID="536979420"><category>Open Videohub</category><topictitle>Search</topictitle>
+</topic><topic topicID="2" categoryUID="2684360820"><category>Open Videohub</category><topictitle>Search</topictitle>
 
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Search</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">This view is used to display search results as well as your favourites and saved videos. </p>
@@ -38,7 +38,7 @@
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0"><b>See related</b> videos as well as videos uploaded by an user.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Available options depends on the data being displayed (some of the options are not available in <b>Saved clips</b> mode).</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Also, in <b>Saved clips</b> mode you can scan your entire phone memory/memory card in order to find FLV files.</p>
-</topic><topic topicID="3" categoryUID="536979420"><category>Open Videohub</category><topictitle>Player</topictitle>
+</topic><topic topicID="3" categoryUID="2684360820"><category>Open Videohub</category><topictitle>Player</topictitle>
 
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Video player</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">This view is used to play videos, either directly from the network or locally from your phone memory. The navigation/status pane displays information about a video such as the current time and video duration, as well as a video's size (in MB) and how much of the video has been downloaded. The last information is only presented when a remote video is being played. Once the video is ready, you can start the playback either via menu (<b>Play</b>) or by using the center joystick button.</p>
@@ -49,7 +49,7 @@
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">'<b>3</b>' key rewinds video to the beginning.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">'<b>4</b>' key mutes/unmutes audio.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">On non touch enabled devices, when the video is paused,  you can use menu options to view clip properties (resolution, audio channels / sample rate, audio / video codecs) as well as save a remote video to a file using “<b>Save</b>” option. This option will be only available for remote videos, and these can be saved as soon as they have been downloaded completely. Please note, that some servers do not allow saving videos locally, and in such case <b>Save </b>option will not be available.</p>
-</topic><topic topicID="4" categoryUID="536979420"><category>Open Videohub</category><topictitle>Settings</topictitle>
+</topic><topic topicID="4" categoryUID="2684360820"><category>Open Videohub</category><topictitle>Settings</topictitle>
 
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Settings</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">This view allows you to modify program behaviour.</p>
@@ -65,19 +65,19 @@
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Cache size: Size (in kilobytes) of space used to store images and other data from the video server. It doesn't include video clips, only the data used to search for videos.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Auto rotate: Disables and enables accelerometer support for switching between  portrait and  landscape mode. This setting item is ignored if your phone isn't equipped with an accelerometer.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0"><b>Temp memory</b>: Defines which memory should be used for storing a temporary video file while playing the video directly from the network. Phone memory is default because it is much faster than a memory card.</p>
-</topic><topic topicID="5" categoryUID="536979420"><category>Open Videohub</category><topictitle>Transfer Manager</topictitle>
+</topic><topic topicID="5" categoryUID="2684360820"><category>Open Videohub</category><topictitle>Transfer Manager</topictitle>
 
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Transfer Manager</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">This view allows you to monitor your downloads and uploads.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Using <b>Options</b> menu you can move entry up/down, remove, pause or start selected entry. Note, that only one entry can be active at a time.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">You can also start video upload using this view. Simply select <b>Upload video</b> from the menu, select site you want to upload video to, pick a video from the presented list of videos, set <i>title</i>, <i>tags</i> and <i>description</i> and press <b>Done</b>. may also be asked to enter your user name and password for the selected server.</p>
-</topic><topic topicID="6" categoryUID="536979420"><category>Open Videohub</category><topictitle>Video Servers</topictitle>
+</topic><topic topicID="6" categoryUID="2684360820"><category>Open Videohub</category><topictitle>Video Servers</topictitle>
 
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Servers</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">This view is used to view list of supported video servers. You can set default video server here. Simply select the one you want to be default, press center key, select <b>Set as default server</b> and press <b>Done</b>. Selected server will always be used as a first server when you browse for videos, but you can see the results from other servers at the same time by changing search tabs.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">Currently selected default server is always marked with a checkmark on the right side of the list.</p>
 <p font="sansserif" style="normal" size="10" color="foreground" justify="left" spacing="10" before="5" after="0" left="0" right="0">While using this list you can also login to selected site (if you have an account on it). Simply click center key or tap on selected server, select <b>Login</b> from the popup menu and follow on screen instructions. Logging in will help if you want to upload videos to a selected site and also will allow you to view videos that are not available for not registered users.</p>
-</topic><uid value="536979420"/>
+</topic><uid value="2684360820"/>
 <context contextUID="ContextApplication" comment="The Application" topicID="1"/>
 <context contextUID="ContextSearch" comment="Search results" topicID="2"/>
 <context contextUID="ContextPlayer" comment="Player" topicID="3"/>
