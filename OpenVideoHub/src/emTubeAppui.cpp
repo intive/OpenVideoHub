@@ -224,7 +224,7 @@ void CEmTubeAppUi::SetTitlePaneTextL( const TDesC& aText )
 	}
 
 CEmTubeAppUi::CEmTubeAppUi()
-	:iVersion( 1, 0, 38),
+	:iVersion( 1, 0, 39),
 	iForeground( ETrue ),
 	iSearchMaxResults( 5 ),
 	iMaxCacheSize( 512 * 1024 ),
