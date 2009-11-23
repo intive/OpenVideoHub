@@ -77,5 +77,3 @@ ENDIF
 
 ;required for application to be covered by backup/restore facility 
 "backup_registration.xml"                                                          -"!:\private\A0001874\backup_registration.xml"
-
-;"ErrRd"                                                                           -"C:\resource\ErrRd"
