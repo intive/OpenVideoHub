@@ -18,6 +18,7 @@ OPTION ARMCC --gnu
 #ifndef WINSCW
 SOURCEPATH ..\libavcodec\armv4l
 SOURCE mpegvideo_armv5te.c
+SOURCE mpegvideo_armv5te_s.S
 SOURCE dsputil_arm_s.S 
 SOURCE simple_idct_armv5te.S 
 SOURCE clear_block_s.S
